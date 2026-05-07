@@ -3,348 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codes aur Khana | Cyber Portal</title>
+    <title>Santanu Konwar | Technical Founder</title>
     
-    <!-- Fonts & GSAP -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
         :root {
-            --primary: #00f2ff;
-            --bg: #050505;
-            --card-bg: rgba(20, 20, 20, 0.6);
-            --text: #ffffff;
+            --bg: #05070a;
+            --card: #0d1117;
+            --accent: #3b82f6;
+            --text-main: #e6edf3;
+            --text-dim: #8b949e;
+            --border: #30363d;
+            --success: #238636;
+            --code-bg: #010409;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* --- Full Background Animation Setup --- */
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #101010 0%, #050505 100%);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg); color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6; }
 
         /* --- Navigation --- */
         nav {
-            padding: 30px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: sticky; top: 0;
+            background: rgba(13, 17, 23, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+        }
+        .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: -1px; }
+        .logo span { color: var(--accent); }
+        .hire-btn {
+            background: var(--accent); color: #fff; text-decoration: none;
+            padding: 10px 24px; border-radius: 10px; font-weight: 700;
+            transition: 0.3s; font-size: 0.9rem;
         }
 
-        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
-        .logo span { color: var(--primary); }
-
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        /* --- Layout --- */
+        .main-container {
+            max-width: 1200px; margin: 50px auto;
+            display: grid; grid-template-columns: 320px 1fr;
+            gap: 50px; padding: 0 5%;
         }
 
-        .hero h1 {
-            font-size: clamp(3rem, 12vw, 8rem);
-            font-weight: 800;
-            line-height: 1;
-            text-transform: uppercase;
-            background: linear-gradient(to bottom, #fff 40%, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* --- Sidebar --- */
+        .profile-card {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 24px; padding: 35px; text-align: center;
+            position: sticky; top: 120px;
         }
-
-        /* --- My Posts Section (Empty for your codes) --- */
-        .posts-container {
-            padding: 100px 10%;
-            max-width: 1200px;
-            margin: 0 auto;
+        .pfp {
+            width: 90px; height: 90px; background: linear-gradient(135deg, var(--accent), #60a5fa);
+            border-radius: 24px; margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; font-weight: 800; color: #fff;
         }
-
-        .post-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            padding: 40px;
-            border-radius: 30px;
-            margin-bottom: 40px;
-            transition: 0.4s;
-            position: relative;
-            overflow: hidden;
+        .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 25px; }
+        .s-link {
+            text-decoration: none; color: var(--text-dim); font-size: 0.75rem; font-weight: 600;
+            padding: 10px; border: 1px solid var(--border); border-radius: 10px;
+            transition: 0.3s;
         }
+        .s-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(59, 130, 246, 0.05); }
 
-        .post-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            transform: translateX(-100%);
-            transition: 0.6s;
+        /* --- Blog Feed --- */
+        .post {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 24px; padding: 45px; margin-bottom: 40px;
         }
+        .post-tag { color: var(--accent); font-family: 'Fira Code'; font-size: 0.8rem; font-weight: 600; margin-bottom: 12px; display: block; }
+        .post h2 { font-size: 2.2rem; margin-bottom: 20px; font-weight: 800; }
+        .post-excerpt { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 25px; }
 
-        .post-card:hover::before { transform: translateX(100%); }
-
-        .post-card h2 { color: var(--primary); margin-bottom: 15px; font-size: 2rem; }
+        /* --- Detailed Content (Hidden) --- */
+        .full-content { display: none; margin-top: 30px; border-top: 1px solid var(--border); padding-top: 30px; }
+        .full-content p { margin-bottom: 20px; color: var(--text-main); font-size: 1rem; }
+        .full-content h3 { margin: 25px 0 15px; color: var(--accent); }
         
-        .code-area {
-            background: #000;
-            padding: 20px;
-            border-radius: 15px;
-            font-family: 'Fira Code', monospace;
-            color: #888;
-            margin-top: 20px;
-            border-left: 3px solid var(--primary);
+        .code-snippet {
+            background: var(--code-bg); border: 1px solid #333;
+            padding: 20px; border-radius: 12px; margin: 20px 0;
+            font-family: 'Fira Code', monospace; color: #7ee787; font-size: 0.9rem;
+            overflow-x: auto;
         }
 
-        /* --- Footer --- */
-        footer { padding: 50px; text-align: center; opacity: 0.5; font-size: 0.8rem; }
+        .money-strategy {
+            background: rgba(35, 134, 54, 0.08); border-left: 4px solid var(--success);
+            padding: 25px; border-radius: 0 12px 12px 0; margin: 30px 0;
+        }
 
-        .read-more-btn {
-    margin-top: 20px;
-    background: transparent;
-    border: none;
-    color: var(--primary);
-    font-weight: 600;
-    cursor: pointer;
-    padding: 0;
-    transition: 0.3s;
-}
+        /* --- Buttons --- */
+        .btn-expand {
+            background: var(--accent); color: #fff; border: none;
+            padding: 14px 30px; border-radius: 12px; font-weight: 700;
+            cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 10px;
+        }
+        .btn-expand:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
 
-.read-more-btn:hover {
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px var(--primary);
-}
-
-/* Full Screen Overlay like a New Page */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--bg);
-    z-index: 2000;
-    display: none; /* Initially hidden */
-    overflow-y: auto;
-    padding: 80px 15%;
-}
-
-.close-btn {
-    position: fixed;
-    top: 30px;
-    left: 10%;
-    background: var(--glass-cyan);
-    border: 1px solid var(--primary);
-    color: var(--primary);
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.full-content h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; }
-.full-content p { font-size: 1.2rem; line-height: 1.8; color: #ccc; margin-bottom: 20px; }
+        @media (max-width: 900px) { .main-container { grid-template-columns: 1fr; } .profile-card { position: relative; top: 0; } }
     </style>
 </head>
 <body>
 
-    <canvas id="bg-canvas"></canvas>
-
     <nav>
-        <div class="logo">CODES AUR <span>KHANA</span></div>
-        <div style="font-size: 0.8rem; letter-spacing: 2px; color: var(--primary);">EST 2026</div>
+        <div class="logo">SANTANU<span>_HUB</span></div>
+        <div class="nav-links">
+            <a href="mailto:konwarsantanu687@gmail.com" class="hire-btn">Hire Me (Gmail)</a>
+        </div>
     </nav>
 
-    <section class="hero">
-        <h1 id="hero-title">TECH &<br>ETHICS</h1>
-        <p style="margin-top: 20px; color: #888; letter-spacing: 4px;">CURATED BY SANTANU KONWAR</p>
-    </section>
-
-    <div class="posts-container">
-        <!-- 
-             Aap apne naye posts yahan niche "post-card" div copy karke add kar sakte hain.
-             Maine blog placeholders hata diye hain, ab sirf aapka content aayega.
-        -->
-       <!-- FIRST BLOG POST: DAY 1 -->
-        <div class="post-card">
-            <span style="color: var(--primary); font-size: 0.8rem; font-weight: bold; letter-spacing: 2px;">LOG #001</span>
-            <h2 style="margin-top: 10px;">Day 01: The Ethical Mindset</h2>
-            
-            <p>Ethical hacking ki shuruat tool se nahi, balki mindset se hoti hai. Pehle din aapko ye samajhna zaroori hai ki ek system kaise kaam karta hai, taaki aap use secure kar sakein.</p>
-            
-            <div class="note" style="background: rgba(255, 0, 0, 0.1); border-left: 3px solid #ff4444; padding: 15px; margin: 20px 0; border-radius: 8px;">
-                <strong style="color: #ff4444;">⚖️ Legal Awareness (Information Technology Act):</strong><br>
-                Hacking bina permission ke India mein <strong>Section 66</strong> ke tehat illegal hai. Hamesha apni lab mein ya authorized environment mein hi practice karein.
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside>
+            <div class="profile-card">
+                <div class="pfp">SK</div>
+                <h2 style="font-size: 1.4rem;">Santanu Konwar</h2>
+                <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 8px;">Founder of HamaraMarket & HyperCreators. Building the future of the web.</p>
+                
+                <div class="social-grid">
+                    <a href="https://www.linkedin.com/in/santanu-konwar-8b17143a8/" class="s-link" target="_blank">LinkedIn</a>
+                    <a href="https://www.youtube.com/@codenet-n5i" class="s-link" target="_blank">YouTube</a>
+                    <a href="" class="s-link" target="_blank">Twitter</a>
+                    <a href="https://www.instagram.com/_introvert_santanu/" class="s-link" target="_blank">Instagram</a>
+                </div>
             </div>
+        </aside>
 
-            <p>Apne environment ko scan karne ke liye pehla basic command jo har hacker ko pata hona chahiye:</p>
+        <!-- Feed -->
+        <main>
+            <!-- Post 1: Ethical Hacking -->
+            <article class="post">
+                <span class="post-tag">#CyberSecurity #LegalHacking</span>
+                <h2>First Day of Ethical Hacking: Legals & Environment</h2>
+                <p class="post-excerpt">Cyber security start karne ka matlab ye nahi ki aap seedha kisi site ko attack karein. Pehla din hamesha Ethics aur Legal boundaries ke baare mein hota hai.</p>
+                
+                <div id="content1" class="full-content">
+                    <p>Ethical Hacking (White Hat Hacking) ka core principle hai "Authorization". Agar aapke paas owner ki written permission nahi hai, toh hacking illegal hai, chahe aapka motive acha hi kyu na ho. India mein IT Act 2000 ke tehat unauthorized access ek bada crime hai.</p>
+                    
+                    <h3>1. Setting Up Your Lab</h3>
+                    <p>Hacking seekhne ke liye aapko ek isolated environment chahiye. Maine apna lab Kali Linux par setup kiya hai jo VMware par chalta hai. Isse aapka main Windows/Mac system secure rehta hai.</p>
+                    
+                    <div class="code-snippet">
+                        # Update repos and install basic tools<br>
+                        $ sudo apt update && sudo apt install nmap net-tools -y
+                    </div>
 
-            <div class="code-area">
-                <span style="color: #00ffcc;"># Nmap scan to check open ports</span><br>
-                nmap -sV -p 1-65535 localhost<br><br>
-                <span style="color: #888;">// Output should show your local services</span>
-            </div>
+                    <h3>2. Passive Reconnaissance</h3>
+                    <p>Pehle din humne seekha ki kaise publicly available data (Google Dorks, WHOIS) ka use karke targets ki information nikaali jaati hai bina unke system ko touch kiye.</p>
+                </div>
+                <button class="btn-expand" onclick="toggle('content1', this)">Read Full Article <span>↓</span></button>
+            </article>
 
-            <div style="margin-top: 25px; display: flex; gap: 15px;">
-                <span style="padding: 5px 12px; background: rgba(0,242,255,0.1); border-radius: 5px; font-size: 0.7rem;">#HackingBasics</span>
-                <span style="padding: 5px 12px; background: rgba(0,242,255,0.1); border-radius: 5px; font-size: 0.7rem;">#CyberSecurity</span>
-                <span style="padding: 5px 12px; background: rgba(0,242,255,0.1); border-radius: 5px; font-size: 0.7rem;">#Day1</span>
-            </div>
-        </div>
-        <!-- END OF FIRST BLOG POST -->
-<!-- NEXT.JS BLOG CARD -->
-<div class="post-card animate-entry">
-    <span style="color: #0070f3; font-size: 0.8rem; font-weight: bold; letter-spacing: 2px;">FRAMEWORK SERIES</span>
-    <h2 style="margin-top: 10px;">Day 01: Why Next.js in 2026?</h2>
-    <p>React se Next.js par shift hona ek developer ke liye sabse bada upgrade hai. Isme hum Server Components aur Speed optimization ke baare mein baat karenge.</p>
-    
-    <!-- Read More Button -->
-    <button class="read-more-btn" onclick="openPost('nextjs-day1')">Read Full Article →</button>
-</div>
+            <!-- Post 2: Next.js & Monetization -->
+            <article class="post">
+                <span class="post-tag">#WebDev #NextJS #Entrepreneurship</span>
+                <h2>Next.js 15: Deployment & Making Money</h2>
+                <p class="post-excerpt">Modern web development sirf code likhna nahi hai, balki scalable solutions banana aur unse revenue generate karna hai.</p>
+                
+                <div id="content2" class="full-content">
+                    <p>Next.js aaj ke time ka sabse powerful React framework hai. Ye Server Components aur App Router provide karta hai jo SEO ke liye best hai. Jab hum isme <b>Shadcn UI</b> ko integrate karte hain, toh humein components khud nahi banane padte—humein sirf unhe customize karna hota hai.</p>
 
-<!-- FULL POST OVERLAY (Hidden by default) -->
-<div id="post-overlay" class="overlay">
-    <button class="close-btn" onclick="closePost()">← Back to Feed</button>
-    <div id="full-content" class="full-content">
-        <!-- Content will be injected here via JS -->
+                    <h3>What is Shadcn UI?</h3>
+                    <p>Ye koi library nahi hai, ye components ka ek collection hai jise aap apne project mein copy-paste karte hain. Isse aapka bundle size chota rehta hai aur design ek dum pixel-perfect hota hai.</p>
+
+                    <div class="code-snippet">
+                        # Start a pro project<br>
+                        $ npx create-next-app@latest my-startup<br>
+                        $ npx shadcn-ui@latest init
+                    </div>
+
+                    <h3>Deployment Strategy</h3>
+                    <p>Deployment ke liye <b>Vercel</b> sabse best hai. Aapko bas apna code GitHub par push karna hai, aur Vercel automatic use live kar dega. Isme CI/CD pipeline built-in hoti hai.</p>
+
+                    <div class="money-strategy">
+                        <h3 style="color: var(--success); margin-top: 0;">💰 The Money Making Guide</h3>
+                        <p>1. <b>High-Ticket Freelancing:</b> Businesses ko Next.js ki speed aur SEO ke baare mein bata kar premium landing pages ke liye $500-$1000 charge karein.</p>
+                        <p>2. <b>Micro-SaaS:</b> Shadcn UI use karke ek useful tool (e.g., Invoice Generator) banayein aur monthly $5 subscription rakhein.</p>
+                        <p>3. <b>Consulting:</b> Apne HamaraMarket portal ke through local businesses ko digital transition mein help karein.</p>
+                    </div>
+                </div>
+                <button class="btn-expand" onclick="toggle('content2', this)">Read Full Article <span>↓</span></button>
+            </article>
+        </main>
     </div>
-</div>
-
-
-        </div>
-    </section>
-    <footer>
-        &copy; 2026 Codes aur Khana | Personal Branding Portfolio
-    </footer>
 
     <script>
-        // Blog Content Database
-const blogData = {
-    'nextjs-day1': {
-        title: "Day 01: Starting with Next.js",
-        content: `
-            <p>Next.js sirf ek library nahi, balki ek complete environment hai jo SEO aur Speed ko priority deta hai.</p>
-            <div class="note" style="border-left: 4px solid #0070f3; background: rgba(0, 112, 243, 0.05); padding: 20px;">
-                <strong>Pro Tip:</strong> 2026 mein Next.js 15+ "Server Components" par focus karta hai, jisse client-side JS bundle size kam ho jata hai.
-            </div>
-            <h3>Installation Code:</h3>
-            <div class="code-area">
-                npx create-next-app@latest my-awesome-app<br>
-                # Select: TypeScript, Tailwind, App Router
-            </div>
-            <p>Iskebaad aapka project structure ready ho jayega. Next.js mein routing 'app' folder ke andar directory banane se hoti hai, jo ki vanilla JS se kafi fast hai.</p>
-        `
-    }
-};
-
-function openPost(postId) {
-    const post = blogData[postId];
-    const overlay = document.getElementById('post-overlay');
-    const contentArea = document.getElementById('full-content');
-
-    contentArea.innerHTML = `<h1>${post.title}</h1>` + post.content;
-    
-    overlay.style.display = 'block';
-    gsap.from(overlay, { opacity: 0, y: 50, duration: 0.5, ease: "power3.out" });
-}
-
-function closePost() {
-    gsap.to('#post-overlay', { 
-        opacity: 0, 
-        y: 50, 
-        duration: 0.4, 
-        onComplete: () => {
-            document.getElementById('post-overlay').style.display = 'none';
-        }
-    });
-}
-        // 1. Background Animation (Dynamic Grid/Stars)
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        let particles = [];
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 - 0.25;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.y > canvas.height) this.y = 0;
-            }
-            draw() {
-                ctx.fillStyle = 'rgba(0, 242, 255, 0.3)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
+        function toggle(id, btn) {
+            const content = document.getElementById(id);
+            const isHidden = content.style.display === "none" || content.style.display === "";
+            
+            if (isHidden) {
+                content.style.display = "block";
+                gsap.from(content, { opacity: 0, height: 0, duration: 0.6, ease: "power2.out" });
+                btn.innerHTML = "Close Article <span>↑</span>";
+                btn.style.background = "#30363d";
+            } else {
+                content.style.display = "none";
+                btn.innerHTML = "Read Full Article <span>↓</span>";
+                btn.style.background = "var(--accent)";
             }
         }
-
-        function init() {
-            for (let i = 0; i < 100; i++) particles.push(new Particle());
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            requestAnimationFrame(animate);
-        }
-        init(); animate();
-
-        // 2. GSAP Smooth Animations
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.from("#hero-title", {
-            y: 100,
-            opacity: 0,
-            duration: 1.5,
-            ease: "expo.out"
-        });
-
-        gsap.from(".post-card", {
-            scrollTrigger: {
-                trigger: ".post-card",
-                start: "top 80%",
-            },
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.3
-        });
     </script>
 </body>
 </html>
-
-
-
