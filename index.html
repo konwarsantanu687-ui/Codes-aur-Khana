@@ -3,189 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santanu Konwar | Technical Founder</title>
+    <title>Santanu Konwar | Reality Cluster</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <style>
         :root {
-            --bg: #05070a;
-            --card: #0d1117;
-            --accent: #3b82f6;
-            --text-main: #e6edf3;
-            --text-dim: #8b949e;
-            --border: #30363d;
-            --success: #238636;
-            --code-bg: #010409;
+            /* Exact Color Palette From The Image */
+            --bg-cream: #e6dfd3;
+            --card-base: #d2cbb8;
+            --text-dark: #14120e;
+            --accent-rust: #af4419;
+            --accent-green: #114c2b;
+            --border-width: 2px;
+            --shadow-offset: 5px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg); color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6; }
+        
+        body { 
+            background-color: var(--bg-cream); 
+            color: var(--text-dark); 
+            font-family: 'Space Grotesk', sans-serif; 
+            line-height: 1.5;
+            padding-bottom: 60px;
+            background-image: radial-gradient(var(--text-dark) 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
 
-        /* --- Navigation --- */
+        /* --- Neo-Brutalist Sticky Navbar --- */
         nav {
             position: sticky; top: 0;
-            background: rgba(13, 17, 23, 0.8);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border);
-            padding: 18px 8%;
+            background: var(--bg-cream);
+            border-bottom: var(--border-width) solid var(--text-dark);
+            padding: 20px 6%;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
         }
-        .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: -1px; }
-        .logo span { color: var(--accent); }
+        .logo { 
+            font-weight: 700; font-size: 1.15rem; letter-spacing: 1px;
+            text-transform: uppercase; display: flex; flex-direction: column;
+            line-height: 1.1;
+        }
+        .logo span { font-size: 0.65rem; font-family: 'Fira Code', monospace; font-weight: 400; }
+        
+        .nav-links { display: flex; gap: 30px; font-weight: 500; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); }
+        
+        /* --- Premium Heavy Interactive Buttons --- */
         .hire-btn {
-            background: var(--accent); color: #fff; text-decoration: none;
-            padding: 10px 24px; border-radius: 10px; font-weight: 700;
-            transition: 0.3s; font-size: 0.9rem;
+            background: var(--text-dark); color: var(--bg-cream);
+            text-decoration: none; padding: 12px 24px; font-weight: 700;
+            text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;
+            border: var(--border-width) solid var(--text-dark);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px #000;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            display: inline-block;
+        }
+        .hire-btn:active {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0px #000;
         }
 
-        /* --- Layout --- */
+        /* --- Layout Control --- */
         .main-container {
-            max-width: 1200px; margin: 50px auto;
-            display: grid; grid-template-columns: 320px 1fr;
-            gap: 50px; padding: 0 5%;
+            max-width: 1100px; margin: 60px auto;
+            display: grid; grid-template-columns: 280px 1fr;
+            gap: 50px; padding: 0 4%;
         }
 
-        /* --- Sidebar --- */
+        /* --- Sidebar Profile --- */
         .profile-card {
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: 24px; padding: 35px; text-align: center;
+            background: var(--card-base); 
+            border: var(--border-width) solid var(--text-dark);
+            border-radius: 4px; padding: 30px; text-align: center;
             position: sticky; top: 120px;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
         }
+        
         .pfp {
-            width: 90px; height: 90px; background: linear-gradient(135deg, var(--accent), #60a5fa);
-            border-radius: 24px; margin: 0 auto 20px;
+            width: 80px; height: 80px; background: var(--text-dark);
+            border-radius: 50%; margin: 0 auto 20px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 2rem; font-weight: 800; color: #fff;
+            font-size: 1.6rem; font-weight: 700; color: var(--bg-cream);
+            border: var(--border-width) solid var(--text-dark);
         }
-        .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 25px; }
+        
+        .profile-card h2 { font-size: 1.5rem; font-weight: 700; text-transform: uppercase; }
+        .profile-card p { font-size: 0.9rem; margin-top: 10px; font-weight: 500; color: rgba(20,18,14,0.8); }
+
+        .social-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 25px; }
         .s-link {
-            text-decoration: none; color: var(--text-dim); font-size: 0.75rem; font-weight: 600;
-            padding: 10px; border: 1px solid var(--border); border-radius: 10px;
-            transition: 0.3s;
+            text-decoration: none; color: var(--text-dark); font-size: 0.8rem; font-weight: 700;
+            padding: 10px; border: var(--border-width) solid var(--text-dark); background: var(--bg-cream);
+            text-transform: uppercase; font-family: 'Fira Code', monospace; letter-spacing: 0.5px;
+            transition: all 0.1s ease;
         }
-        .s-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(59, 130, 246, 0.05); }
+        .s-link:active { 
+            background: var(--text-dark); color: var(--bg-cream);
+        }
 
-        /* --- Blog Feed --- */
+        /* --- Post Brutalist Elements --- */
         .post {
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: 24px; padding: 45px; margin-bottom: 40px;
+            background: var(--card-base); 
+            border: var(--border-width) solid var(--text-dark);
+            padding: 35px; margin-bottom: 40px; position: relative;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
         }
-        .post-tag { color: var(--accent); font-family: 'Fira Code'; font-size: 0.8rem; font-weight: 600; margin-bottom: 12px; display: block; }
-        .post h2 { font-size: 2.2rem; margin-bottom: 20px; font-weight: 800; }
-        .post-excerpt { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 25px; }
+        
+        .post-tag { 
+            font-family: 'Fira Code', monospace; 
+            font-size: 0.75rem; font-weight: 700; 
+            margin-bottom: 12px; display: inline-block;
+            text-transform: uppercase; color: var(--accent-rust);
+        }
+        
+        .post h2 { font-size: 2rem; margin-bottom: 15px; font-weight: 700; text-transform: uppercase; }
+        .post-excerpt { font-size: 1.05rem; margin-bottom: 20px; font-weight: 500; }
 
-        /* --- Detailed Content (Hidden) --- */
-        .full-content { display: none; margin-top: 30px; border-top: 1px solid var(--border); padding-top: 30px; }
-        .full-content p { margin-bottom: 20px; color: var(--text-main); font-size: 1rem; }
-        .full-content h3 { margin: 25px 0 15px; color: var(--accent); }
+        /* --- Dropdown Panel --- */
+        .full-content { display: none; margin-top: 20px; border-top: var(--border-width) solid var(--text-dark); padding-top: 25px; }
+        .full-content p { margin-bottom: 15px; font-size: 1rem; color: #1c1a16; }
+        .full-content h3 { margin: 25px 0 10px; font-size: 1.25rem; text-transform: uppercase; color: var(--accent-rust); }
         
         .code-snippet {
-            background: var(--code-bg); border: 1px solid #333;
-            padding: 20px; border-radius: 12px; margin: 20px 0;
-            font-family: 'Fira Code', monospace; color: #7ee787; font-size: 0.9rem;
-            overflow-x: auto;
+            background: var(--bg-cream); border: var(--border-width) solid var(--text-dark);
+            padding: 15px 20px; margin: 20px 0;
+            font-family: 'Fira Code', monospace; color: var(--text-dark); font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        .money-strategy {
-            background: rgba(35, 134, 54, 0.08); border-left: 4px solid var(--success);
-            padding: 25px; border-radius: 0 12px 12px 0; margin: 30px 0;
+        .money-strategy, .ai-strategy {
+            padding: 20px; margin: 25px 0;
+            border: var(--border-width) solid var(--text-dark); background: var(--bg-cream);
+            box-shadow: 4px 4px 0px var(--text-dark);
         }
+        .money-strategy { border-left: 10px solid var(--accent-green); }
+        .ai-strategy { border-left: 10px solid var(--accent-rust); }
 
-        /* --- Buttons --- */
+        /* --- Smooth Brutalist Trigger Buttons --- */
         .btn-expand {
-            background: var(--accent); color: #fff; border: none;
-            padding: 14px 30px; border-radius: 12px; font-weight: 700;
-            cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 10px;
+            background: var(--accent-rust); color: #fff; 
+            border: var(--border-width) solid var(--text-dark);
+            padding: 12px 24px; font-weight: 700;
+            cursor: pointer; font-size: 0.85rem; font-family: 'Fira Code', monospace;
+            text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 4px 4px 0px var(--text-dark);
+            transition: transform 0.05s ease, box-shadow 0.05s ease;
+            outline: none;
         }
-        .btn-expand:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
+        .btn-expand:active { 
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--text-dark);
+        }
 
-        @media (max-width: 900px) { .main-container { grid-template-columns: 1fr; } .profile-card { position: relative; top: 0; } }
+        /* --- Reality Section Footer with Party Link --- */
+        .reality-disclaimer {
+            margin-top: 50px;
+            background: var(--card-base);
+            border: var(--border-width) solid var(--text-dark);
+            padding: 30px;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
+            position: relative;
+        }
+        .reality-title {
+            font-size: 1.3rem; font-weight: 700; margin-bottom: 10px;
+            text-transform: uppercase; display: flex; align-items: center; gap: 10px;
+        }
+        .reality-title .status-dot {
+            width: 24px; height: 24px; background: var(--accent-green);
+            border: var(--border-width) solid var(--text-dark); border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 0.7rem;
+        }
+        .reality-text { font-size: 1rem; font-weight: 500; color: var(--text-dark); }
+        
+        .party-tag-link {
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .party-tag {
+            background: var(--accent-rust); color: #fff;
+            border: var(--border-width) solid var(--text-dark);
+            padding: 10px 20px; font-weight: 700; text-transform: uppercase;
+            font-family: 'Fira Code', monospace; font-size: 0.8rem;
+            box-shadow: 3px 3px 0px var(--text-dark);
+            transition: transform 0.05s ease, box-shadow 0.05s ease;
+        }
+        .party-tag-link:active .party-tag {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px var(--text-dark);
+        }
+
+        @media (max-width: 900px) { 
+            .main-container { grid-template-columns: 1fr; } 
+            .profile-card { position: relative; top: 0; margin-bottom: 30px; } 
+            .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">SANTANU<span>_HUB</span></div>
-        <div class="nav-links">
-            <a href="mailto:konwarsantanu687@gmail.com" class="hire-btn">Hire Me (Gmail)</a>
+        <div class="logo">
+            CODES AUR KHANA
+            <span>SANTANU_DEV • EST. 2026</span>
         </div>
+        <div class="nav-links">
+            <a href="#codes-khana">Codes aur Khana</a>
+            <a href="#dev-strategy">Dev Strategy</a>
+            <a href="#reality">Reality</a>
+        </div>
+        <a href="mailto:santanukonwar@gmail.com" class="hire-btn">GMAIL ME →</a>
     </nav>
 
     <div class="main-container">
-        <!-- Sidebar -->
         <aside>
             <div class="profile-card">
                 <div class="pfp">SK</div>
-                <h2 style="font-size: 1.4rem;">Santanu Konwar</h2>
-                <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 8px;">Founder of HamaraMarket & HyperCreators. Building the future of the web.</p>
+                <h2>Santanu Konwar</h2>
+                <p>Founder of HamaraMarket & HyperCreators. Speaking absolute truth, executing custom builds by code logic.</p>
                 
                 <div class="social-grid">
-                    <a href="https://www.linkedin.com/in/santanu-konwar-8b17143a8/" class="s-link" target="_blank">LinkedIn</a>
-                    <a href="https://www.youtube.com/@codenet-n5i" class="s-link" target="_blank">YouTube</a>
-                    <a href="" class="s-link" target="_blank">Twitter</a>
-                    <a href="https://www.instagram.com/_introvert_santanu/" class="s-link" target="_blank">Instagram</a>
+                    <a href="https://www.linkedin.com/in/codes-aur-khana-a1b3b6407/" class="s-link" target="_blank">LINKEDIN</a>
+                    <a href="https://www.youtube.com/@codenet-n5i" class="s-link" target="_blank">YOUTUBE</a>
+                    <a href="https://twitter.com" class="s-link" target="_blank">TWITTER</a>
+                    <a href="https://www.instagram.com/codes_aur_khana/" class="s-link" target="_blank">INSTAGRAM</a>
                 </div>
             </div>
         </aside>
 
-        <!-- Feed -->
         <main>
-            <!-- Post 1: Ethical Hacking -->
-            <article class="post">
-                <span class="post-tag">#CyberSecurity #LegalHacking</span>
-                <h2>First Day of Ethical Hacking: Legals & Environment</h2>
-                <p class="post-excerpt">Cyber security start karne ka matlab ye nahi ki aap seedha kisi site ko attack karein. Pehla din hamesha Ethics aur Legal boundaries ke baare mein hota hai.</p>
+            <article class="post" id="codes-khana">
+                <span class="post-tag">DOCUMENTATION / 01 // REALITY_SIDE</span>
+                <h2>What is Codes aur Khana & The Truth of Real Growth</h2>
+                <p class="post-excerpt">Traditional frameworks humein hamesha poor aur unemployed bol kar manipulate karte hain. Reality kya hai, aur kaise raw execution aapko codes aur business dono mein grow karwayegi, poora sach yahan padhein.</p>
                 
-                <div id="content1" class="full-content">
-                    <p>Ethical Hacking (White Hat Hacking) ka core principle hai "Authorization". Agar aapke paas owner ki written permission nahi hai, toh hacking illegal hai, chahe aapka motive acha hi kyu na ho. India mein IT Act 2000 ke tehat unauthorized access ek bada crime hai.</p>
+                <div id="content_doc" class="full-content">
+                    <h3>1. What is Codes aur Khana?</h3>
+                    <p><b>Codes aur Khana</b> koi fake corporate concept nahi hai—it represents the absolute raw ground reality of survival and scaling. Yeh ek straightforward ideology hai jahan hum <b>sustenance (Khana)</b> aur <b>pure digital leverage (Codes)</b> ko merge karte hain. True builders complex theories par time waste nahi karte; wo seedha functional structures likhte hain jo value create karein.</p>
                     
-                    <h3>1. Setting Up Your Lab</h3>
-                    <p>Hacking seekhne ke liye aapko ek isolated environment chahiye. Maine apna lab Kali Linux par setup kiya hai jo VMware par chalta hai. Isse aapka main Windows/Mac system secure rehta hai.</p>
-                    
-                    <div class="code-snippet">
-                        # Update repos and install basic tools<br>
-                        $ sudo apt update && sudo apt install nmap net-tools -y
+                    <h3>2. How Other Parties Fool Us & Scam</h3>
+                    <p>Baki log aur traditional setups public ke dimaag se khelte hain. Wo bade, unrealistic dreams bechte hain jinka actual field se koi connection nahi hota. Wo aapko bolenge ki aap "unemployed" aur "poor" ho, sirf isliye taaki aapka confidence down ho jaye aur aap unke systematic cycles aur pre-made templates par dependent bane raho. Wo solution dene ke naam par aapko lifelong dependent bana dete hain.</p>
+
+                    <div class="ai-strategy">
+                        <h4 style="text-transform: uppercase; margin-bottom: 10px;">⚠️ THE INDEPENDENCE ARCHITECTURE:</h4>
+                        <p><b>• Kill Dependency:</b> Pre-made complex tools ko blindly copy karne ke bajaye apna local control (HTML/CSS/JS) khud execute karna seekho.</p>
+                        <p><b>• Raw Value Creation:</b> Market hamesha functional solutions ko pay karti hai, fake hypes ko nahi.</p>
                     </div>
 
-                    <h3>2. Passive Reconnaissance</h3>
-                    <p>Pehle din humne seekha ki kaise publicly available data (Google Dorks, WHOIS) ka use karke targets ki information nikaali jaati hai bina unke system ko touch kiye.</p>
+                    <h3>3. How Codes aur Khana Helps Everyone Grow</h3>
+                    <p>Jab aap unke fake tags ko sunna band kar dete ho, tab aap actual growth par focus karte ho. Codes aur Khana aapko seekhata hai ki kaise directly core logic likh kar real-world tools (jaise dynamic job portals or subscription channels) banaye jaate hain. Jab aapki code logic solid hoti hai, tab aap seedha product generate karte ho jo customer ki screen par transform hoti hai, aur wahi se aapka business scaling build hota hai.</p>
                 </div>
-                <button class="btn-expand" onclick="toggle('content1', this)">Read Full Article <span>↓</span></button>
+                <button class="btn-expand" onclick="toggle('content_doc', this)">Read Documentation <span>↓</span></button>
             </article>
 
-            <!-- Post 2: Next.js & Monetization -->
+            <article class="post" id="dev-strategy">
+                <span class="post-tag">REQ / 02 // DEV STRATEGY</span>
+                <h2>Day 02: AI Leverage vs Core Logic Mastery</h2>
+                <p class="post-excerpt">2026 mein AI tools code generate kar sakte hain, par ek real engineer banne ke liye aapko "Engine" ka chalna khud samajhna hoga.</p>
+                
+                <div id="content3" class="full-content">
+                    <p>Aaj ke time mein har koi AI use karke code generate kar raha hai. Iska nuksan yeh ho raha hai ki juniors ka foundational logic weak ho jata hai. Agar aapko web development mein sach mein 1% developers mein aana hai, toh aapko AI ko apna slave banana hoga, master nahi.</p>
+                    
+                    <h3>Own Skill: The Vanilla Blueprint</h3>
+                    <p>AI hamesha perfect code nahi deta; aksar wo bugged scripts generate karta hai. Jab tak aapka Vanilla JavaScript aur layouts par command nahi hoga, tab tak aap AI ke errors ko fix nahi kar payenge.</p>
+                    
+                    <div class="code-snippet">
+                        const processData = (data) => data.filter(item => item.isActive);
+                    </div>
+                </div>
+                <button class="btn-expand" onclick="toggle('content3', this)">Read Full Details <span>↓</span></button>
+            </article>
+
             <article class="post">
-                <span class="post-tag">#WebDev #NextJS #Entrepreneurship</span>
-                <h2>Next.js 15: Deployment & Making Money</h2>
-                <p class="post-excerpt">Modern web development sirf code likhna nahi hai, balki scalable solutions banana aur unse revenue generate karna hai.</p>
+                <span class="post-tag">REQ / 03 // ARCHITECTURE</span>
+                <h2>Day 01: Next.js 15, Shadcn UI & Deployment</h2>
+                <p class="post-excerpt">Modern fast deployment workflows aur premium styling structures create karna seekhein jo actual projects mein real money drive karte hain.</p>
                 
                 <div id="content2" class="full-content">
-                    <p>Next.js aaj ke time ka sabse powerful React framework hai. Ye Server Components aur App Router provide karta hai jo SEO ke liye best hai. Jab hum isme <b>Shadcn UI</b> ko integrate karte hain, toh humein components khud nahi banane padte—humein sirf unhe customize karna hota hai.</p>
-
-                    <h3>What is Shadcn UI?</h3>
-                    <p>Ye koi library nahi hai, ye components ka ek collection hai jise aap apne project mein copy-paste karte hain. Isse aapka bundle size chota rehta hai aur design ek dum pixel-perfect hota hai.</p>
+                    <p>Next.js modern web apps banane ka efficient standard framework hai. Aur jab aap Shadcn UI merge karte hain, tab direct production ready interfaces build hote hain.</p>
 
                     <div class="code-snippet">
-                        # Start a pro project<br>
-                        $ npx create-next-app@latest my-startup<br>
-                        $ npx shadcn-ui@latest init
-                    </div>
-
-                    <h3>Deployment Strategy</h3>
-                    <p>Deployment ke liye <b>Vercel</b> sabse best hai. Aapko bas apna code GitHub par push karna hai, aur Vercel automatic use live kar dega. Isme CI/CD pipeline built-in hoti hai.</p>
-
-                    <div class="money-strategy">
-                        <h3 style="color: var(--success); margin-top: 0;">💰 The Money Making Guide</h3>
-                        <p>1. <b>High-Ticket Freelancing:</b> Businesses ko Next.js ki speed aur SEO ke baare mein bata kar premium landing pages ke liye $500-$1000 charge karein.</p>
-                        <p>2. <b>Micro-SaaS:</b> Shadcn UI use karke ek useful tool (e.g., Invoice Generator) banayein aur monthly $5 subscription rakhein.</p>
-                        <p>3. <b>Consulting:</b> Apne HamaraMarket portal ke through local businesses ko digital transition mein help karein.</p>
+                        $ npx create-next-app@latest && npx shadcn-ui@latest init
                     </div>
                 </div>
-                <button class="btn-expand" onclick="toggle('content2', this)">Read Full Article <span>↓</span></button>
+                <button class="btn-expand" onclick="toggle('content2', this)">Read Full Details <span>↓</span></button>
             </article>
+
+            <footer id="reality" class="reality-disclaimer">
+                <div class="reality-title">
+                    <div class="status-dot">✓</div>
+                    We Talk Reality
+                </div>
+                <p class="reality-text">
+                    We are true and we talk reality, not fake. We share all reality here unfiltered. We are completely built different—we are not like others. We stand by real work and raw execution.
+                </p>
+                <a href="https://cockroachjantaparty.org" target="_blank" class="party-tag-link">
+                    <div class="party-tag">WE SUPPORT COCKROACH JANATA PARTY ↗</div>
+                </a>
+            </footer>
         </main>
     </div>
 
@@ -196,13 +315,15 @@
             
             if (isHidden) {
                 content.style.display = "block";
-                gsap.from(content, { opacity: 0, height: 0, duration: 0.6, ease: "power2.out" });
-                btn.innerHTML = "Close Article <span>↑</span>";
-                btn.style.background = "#30363d";
+                gsap.from(content, { opacity: 0, y: -5, duration: 0.2 });
+                btn.innerHTML = "Close Content <span>↑</span>";
+                btn.style.background = "var(--text-dark)";
+                btn.style.color = "var(--bg-cream)";
             } else {
                 content.style.display = "none";
-                btn.innerHTML = "Read Full Article <span>↓</span>";
-                btn.style.background = "var(--accent)";
+                btn.innerHTML = "Read Content <span>↓</span>";
+                btn.style.background = "var(--accent-rust)";
+                btn.style.color = "#fff";
             }
         }
     </script>
