@@ -18,6 +18,7 @@
             --accent-green: #114c2b;
             --border-width: 2px;
             --shadow-offset: 5px;
+            --shadow-offset-mobile: 4px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,128 +28,133 @@
             color: var(--text-dark); 
             font-family: 'Space Grotesk', sans-serif; 
             line-height: 1.5;
-            padding-bottom: 60px;
+            padding-bottom: 40px;
             background-image: radial-gradient(var(--text-dark) 0.5px, transparent 0.5px);
             background-size: 24px 24px;
+            overflow-x: hidden;
         }
 
-        /* --- Neo-Brutalist Sticky Navbar --- */
+        /* --- Responsive Neo-Brutalist Sticky Navbar --- */
         nav {
             position: sticky; top: 0;
             background: var(--bg-cream);
             border-bottom: var(--border-width) solid var(--text-dark);
-            padding: 20px 6%;
+            padding: 15px 4%;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
         }
         .logo { 
-            font-weight: 700; font-size: 1.15rem; letter-spacing: 1px;
+            font-weight: 700; font-size: 1rem; letter-spacing: 0.5px;
             text-transform: uppercase; display: flex; flex-direction: column;
             line-height: 1.1;
         }
-        .logo span { font-size: 0.65rem; font-family: 'Fira Code', monospace; font-weight: 400; }
+        .logo span { font-size: 0.6rem; font-family: 'Fira Code', monospace; font-weight: 400; }
         
-        .nav-links { display: flex; gap: 30px; font-weight: 500; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        .nav-links { display: flex; gap: 20px; font-weight: 500; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
         .nav-links a { text-decoration: none; color: var(--text-dark); }
         
-        /* --- Premium Heavy Interactive Buttons --- */
+        /* --- Premium Heavy Interactive Top Button --- */
         .hire-btn {
             background: var(--text-dark); color: var(--bg-cream);
-            text-decoration: none; padding: 12px 24px; font-weight: 700;
-            text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;
+            text-decoration: none; padding: 10px 18px; font-weight: 700;
+            text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px;
             border: var(--border-width) solid var(--text-dark);
-            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px #000;
-            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px #000;
+            transition: transform 0.05s ease, box-shadow 0.05s ease;
             display: inline-block;
+            white-space: nowrap;
         }
         .hire-btn:active {
-            transform: translate(3px, 3px);
+            transform: translate(2px, 2px);
             box-shadow: 2px 2px 0px #000;
         }
 
-        /* --- Layout Control --- */
+        /* --- Master Layout Grid (PC & Mobile Adaptive) --- */
         .main-container {
-            max-width: 1100px; margin: 60px auto;
+            max-width: 1100px; margin: 30px auto;
             display: grid; grid-template-columns: 280px 1fr;
-            gap: 50px; padding: 0 4%;
+            gap: 30px; padding: 0 4%;
         }
 
-        /* --- Sidebar Profile --- */
+        /* --- Sidebar Profile Box --- */
         .profile-card {
             background: var(--card-base); 
             border: var(--border-width) solid var(--text-dark);
-            border-radius: 4px; padding: 30px; text-align: center;
-            position: sticky; top: 120px;
+            border-radius: 4px; padding: 25px 20px; text-align: center;
+            position: sticky; top: 100px;
             box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
         }
         
         .pfp {
-            width: 80px; height: 80px; background: var(--text-dark);
-            border-radius: 50%; margin: 0 auto 20px;
+            width: 75px; height: 75px; background: var(--text-dark);
+            border-radius: 50%; margin: 0 auto 15px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.6rem; font-weight: 700; color: var(--bg-cream);
+            font-size: 1.5rem; font-weight: 700; color: var(--bg-cream);
             border: var(--border-width) solid var(--text-dark);
         }
         
-        .profile-card h2 { font-size: 1.5rem; font-weight: 700; text-transform: uppercase; }
-        .profile-card p { font-size: 0.9rem; margin-top: 10px; font-weight: 500; color: rgba(20,18,14,0.8); }
+        .profile-card h2 { font-size: 1.35rem; font-weight: 700; text-transform: uppercase; }
+        .profile-card p { font-size: 0.85rem; margin-top: 10px; font-weight: 500; color: rgba(20,18,14,0.9); }
 
-        .social-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 25px; }
+        .social-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 20px; }
         .s-link {
-            text-decoration: none; color: var(--text-dark); font-size: 0.8rem; font-weight: 700;
-            padding: 10px; border: var(--border-width) solid var(--text-dark); background: var(--bg-cream);
+            text-decoration: none; color: var(--text-dark); font-size: 0.75rem; font-weight: 700;
+            padding: 8px; border: var(--border-width) solid var(--text-dark); background: var(--bg-cream);
             text-transform: uppercase; font-family: 'Fira Code', monospace; letter-spacing: 0.5px;
-            transition: all 0.1s ease;
+            transition: all 0.05s ease;
         }
         .s-link:active { 
             background: var(--text-dark); color: var(--bg-cream);
         }
 
-        /* --- Post Brutalist Elements --- */
+        /* --- Core Blog Posts Container --- */
         .post {
             background: var(--card-base); 
             border: var(--border-width) solid var(--text-dark);
-            padding: 35px; margin-bottom: 40px; position: relative;
+            padding: 30px; margin-bottom: 30px; position: relative;
             box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
         }
         
         .post-tag { 
             font-family: 'Fira Code', monospace; 
-            font-size: 0.75rem; font-weight: 700; 
-            margin-bottom: 12px; display: inline-block;
+            font-size: 0.7rem; font-weight: 700; 
+            margin-bottom: 10px; display: inline-block;
             text-transform: uppercase; color: var(--accent-rust);
         }
         
-        .post h2 { font-size: 2rem; margin-bottom: 15px; font-weight: 700; text-transform: uppercase; }
-        .post-excerpt { font-size: 1.05rem; margin-bottom: 20px; font-weight: 500; }
+        .post h2 { font-size: 1.75rem; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; line-height: 1.2; }
+        .post-excerpt { font-size: 1rem; margin-bottom: 18px; font-weight: 500; }
 
-        /* --- Dropdown Panel --- */
-        .full-content { display: none; margin-top: 20px; border-top: var(--border-width) solid var(--text-dark); padding-top: 25px; }
-        .full-content p { margin-bottom: 15px; font-size: 1rem; color: #1c1a16; }
-        .full-content h3 { margin: 25px 0 10px; font-size: 1.25rem; text-transform: uppercase; color: var(--accent-rust); }
+        /* --- Dynamic Collapsible Inside Layout --- */
+        .full-content { display: none; margin-top: 20px; border-top: var(--border-width) solid var(--text-dark); padding-top: 20px; }
+        .full-content p { margin-bottom: 15px; font-size: 0.95rem; color: #1c1a16; }
+        .full-content h3 { margin: 20px 0 10px; font-size: 1.15rem; text-transform: uppercase; color: var(--accent-rust); }
         
         .code-snippet {
             background: var(--bg-cream); border: var(--border-width) solid var(--text-dark);
-            padding: 15px 20px; margin: 20px 0;
-            font-family: 'Fira Code', monospace; color: var(--text-dark); font-size: 0.9rem;
-            font-weight: 600;
+            padding: 12px 15px; margin: 15px 0;
+            font-family: 'Fira Code', monospace; color: var(--text-dark); font-size: 0.85rem;
+            font-weight: 600; overflow-x: auto; white-space: nowrap;
         }
 
         .money-strategy, .ai-strategy {
-            padding: 20px; margin: 25px 0;
+            padding: 15px; margin: 20px 0;
             border: var(--border-width) solid var(--text-dark); background: var(--bg-cream);
-            box-shadow: 4px 4px 0px var(--text-dark);
+            box-shadow: 3px 3px 0px var(--text-dark);
         }
-        .money-strategy { border-left: 10px solid var(--accent-green); }
-        .ai-strategy { border-left: 10px solid var(--accent-rust); }
+        .money-strategy { border-left: 8px solid var(--accent-green); }
+        .ai-strategy { border-left: 8px solid var(--accent-rust); }
+        
+        .money-strategy p, .ai-strategy p { font-size: 0.9rem; margin-bottom: 8px; }
+        .money-strategy p:last-child, .ai-strategy p:last-child { margin-bottom: 0; }
 
-        /* --- Smooth Brutalist Trigger Buttons --- */
+        /* --- Universal Expand/Collapse Interactive Buttons --- */
         .btn-expand {
             background: var(--accent-rust); color: #fff; 
             border: var(--border-width) solid var(--text-dark);
-            padding: 12px 24px; font-weight: 700;
-            cursor: pointer; font-size: 0.85rem; font-family: 'Fira Code', monospace;
-            text-transform: uppercase; letter-spacing: 1px;
+            padding: 10px 20px; font-weight: 700;
+            cursor: pointer; font-size: 0.8rem; font-family: 'Fira Code', monospace;
+            text-transform: uppercase; letter-spacing: 0.5px;
             box-shadow: 4px 4px 0px var(--text-dark);
             transition: transform 0.05s ease, box-shadow 0.05s ease;
             outline: none;
@@ -158,37 +164,37 @@
             box-shadow: 2px 2px 0px var(--text-dark);
         }
 
-        /* --- Reality Section Footer with Party Link --- */
+        /* --- Bottom Cockroach Footer Support Block --- */
         .reality-disclaimer {
-            margin-top: 50px;
+            margin-top: 40px;
             background: var(--card-base);
             border: var(--border-width) solid var(--text-dark);
-            padding: 30px;
+            padding: 25px;
             box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
             position: relative;
         }
         .reality-title {
-            font-size: 1.3rem; font-weight: 700; margin-bottom: 10px;
-            text-transform: uppercase; display: flex; align-items: center; gap: 10px;
+            font-size: 1.15rem; font-weight: 700; margin-bottom: 10px;
+            text-transform: uppercase; display: flex; align-items: center; gap: 8px;
         }
         .reality-title .status-dot {
-            width: 24px; height: 24px; background: var(--accent-green);
+            width: 20px; height: 20px; background: var(--accent-green);
             border: var(--border-width) solid var(--text-dark); border-radius: 50%;
             display: inline-flex; align-items: center; justify-content: center;
-            color: #fff; font-size: 0.7rem;
+            color: #fff; font-size: 0.65rem;
         }
-        .reality-text { font-size: 1rem; font-weight: 500; color: var(--text-dark); }
+        .reality-text { font-size: 0.9rem; font-weight: 500; color: var(--text-dark); }
         
         .party-tag-link {
             text-decoration: none;
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         .party-tag {
             background: var(--accent-rust); color: #fff;
             border: var(--border-width) solid var(--text-dark);
-            padding: 10px 20px; font-weight: 700; text-transform: uppercase;
-            font-family: 'Fira Code', monospace; font-size: 0.8rem;
+            padding: 8px 16px; font-weight: 700; text-transform: uppercase;
+            font-family: 'Fira Code', monospace; font-size: 0.75rem;
             box-shadow: 3px 3px 0px var(--text-dark);
             transition: transform 0.05s ease, box-shadow 0.05s ease;
         }
@@ -197,10 +203,38 @@
             box-shadow: 1px 1px 0px var(--text-dark);
         }
 
+        /* ==========================================
+           CRITICAL RESPONSIVE MEDIA QUERIES (PC vs Mobile)
+           ========================================== */
+        @media (min-width: 901px) {
+            nav { padding: 20px 6%; }
+            .logo { font-size: 1.15rem; }
+            .logo span { font-size: 0.65rem; }
+            .hire-btn { padding: 12px 24px; font-size: 0.85rem; box-shadow: var(--shadow-offset) var(--shadow-offset) 0px #000; }
+        }
+
         @media (max-width: 900px) { 
-            .main-container { grid-template-columns: 1fr; } 
-            .profile-card { position: relative; top: 0; margin-bottom: 30px; } 
+            .main-container { 
+                grid-template-columns: 1fr; 
+                margin: 20px auto;
+                gap: 25px;
+            } 
+            .profile-card { 
+                position: relative; top: 0; 
+                box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px var(--text-dark);
+            } 
+            .post {
+                padding: 20px;
+                box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px var(--text-dark);
+            }
+            .post h2 { font-size: 1.4rem; }
+            .post-excerpt { font-size: 0.9rem; }
             .nav-links { display: none; }
+            
+            .reality-disclaimer {
+                padding: 20px;
+                box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px var(--text-dark);
+            }
         }
     </style>
 </head>
@@ -212,11 +246,11 @@
             <span>SANTANU_DEV • EST. 2026</span>
         </div>
         <div class="nav-links">
+            <a href="#fail-analysis">Failure Analysis</a>
             <a href="#codes-khana">Codes aur Khana</a>
-            <a href="#dev-strategy">Dev Strategy</a>
-            <a href="#reality">Reality</a>
+            <a href="#no-money">Founder Truth</a>
         </div>
-        <a href="mailto:@gmail.com" class="hire-btn">GMAIL ME →</a>
+        <a href="mailto:santanukonwar@gmail.com" class="hire-btn">GMAIL ME →</a>
     </nav>
 
     <div class="main-container">
@@ -226,20 +260,21 @@
                 <h2>Santanu Konwar</h2>
                 <p>Founder of HamaraMarket & HyperCreators. Speaking absolute truth, executing custom builds by code logic.</p>
                 
-                <div class="social-grid">
+      <div class="social-grid">
                     <a href="https://www.linkedin.com/in/codes-aur-khana-a1b3b6407/" class="s-link" target="_blank">LINKEDIN</a>
                     <a href="https://www.youtube.com/@codenet-n5i" class="s-link" target="_blank">YOUTUBE</a>
                     <a href="https://twitter.com" class="s-link" target="_blank">TWITTER</a>
                     <a href="https://www.instagram.com/codes_aur_khana/" class="s-link" target="_blank">INSTAGRAM</a>
                 </div>
-            </div>
         </aside>
-<article class="post" id="codes-khana">
+
+        <main>
+            <article class="post" id="fail-analysis">
                 <span class="post-tag">DOCUMENTATION / 01 // GROUND_REALITY</span>
                 <h2>How India's Average & Business People Fail: The Unfiltered Truth</h2>
                 <p class="post-excerpt">Hype, high interest debts, fake status symbols, aur poor execution strategies kaise modern Indian businesses aur average individual minds ko trap karti hain—read the complete logical breakdown.</p>
                 
-                <div id="content_doc" class="full-content">
+                <div id="content_fail" class="full-content">
                     <h3>1. The Average Person's Trap: Degree vs Real Skills</h3>
                     <p>India mein 90% average log isliye fail hote hain kyunki wo traditional institutional systems ke beche huye hype par trust karte hain. Wo lakhon rupaye aisi degrees par kharch kar dete hain jahan outdated theories padhai jaati hain, aur jab tak wo graduate hote hain, market un skills ko zero value deta hai. Wo systems par dependent rehte hain aur jab job nahi milti toh depressed ho jaate hain, jabki real asset-building aur core scaling par koi focus nahi karta.</p>
                     
@@ -249,79 +284,1192 @@
                     <div class="ai-strategy">
                         <h4 style="text-transform: uppercase; margin-bottom: 10px; color: var(--accent-rust);">⚠️ SYSTEM CRITICAL ERROR LOCATIONS:</h4>
                         <p><b>• Over-leveraging on Debt:</b> Bina proof-of-concept ke bade loops par finance ya leverage uthana aur operations block karna.</p>
-                        <p><b>• Middleman Reliance:</b> Direct builders banne ki jagah distribution aur agency structures ko handle karne ke liye intermediaries par zyada focus rakhna.</p>
+                        <p><b>• Middleman Reliance:</b> Direct builders banne ki jagah distribution aur agency structures ko handle karne ke liye intermediaries par zyada focusรักษา.</p>
                     </div>
 
                     <h3>3. The Poor Mindset vs Raw Coding Strategy</h3>
                     <p>Traditional narrative logo ko 'unemployed' aur 'poor' bol kar isliye convince rakhta hai taaki wo schemes ke dependent bane rahein. Local scale business ya builder jab tak apna customized architecture khud handle nahi karega (bina fixed expensive platforms par depend huye), tab tak scalability zero rahegi. Real growth tab aati hai jab aap fake branding aur templates chhod kar reality zone mein cash flow par command karte hain.</p>
                 </div>
-                <button class="btn-expand" onclick="toggle('content_doc', this)">Read Documentation <span>↓</span></button>
+                <button class="btn-expand" onclick="toggle('content_fail', this)">Read Documentation <span>↓</span></button>
             </article>
-        <main>
+
             <article class="post" id="codes-khana">
-                <span class="post-tag">DOCUMENTATION / 01 // REALITY_SIDE</span>
-                <h2>What is Codes aur Khana & The Truth of Real Growth</h2>
-                <p class="post-excerpt">Traditional frameworks humein hamesha poor aur unemployed bol kar manipulate karte hain. Reality kya hai, aur kaise raw execution aapko codes aur business dono mein grow karwayegi, poora sach yahan padhein.</p>
+                <span class="post-tag">DOCUMENTATION / 02 // REALITY_SIDE</span>
+                <h2>What is Codes aur Khana & Why They Help All Grow</h2>
+                <p class="post-excerpt">Sustenance aur logic block ko merge karke bina kisi third-party network aur templates ke directly business scalable asset banana hi asli power hai.</p>
                 
-                <div id="content_doc" class="full-content">
-                    <h3>1. What is Codes aur Khana?</h3>
-                    <p><b>Codes aur Khana</b> koi fake corporate concept nahi hai—it represents the absolute raw ground reality of survival and scaling. Yeh ek straightforward ideology hai jahan hum <b>sustenance (Khana)</b> aur <b>pure digital leverage (Codes)</b> ko merge karte hain. True builders complex theories par time waste nahi karte; wo seedha functional structures likhte hain jo value create karein.</p>
+                <div id="content_codes" class="full-content">
+                    <h3>1. Core Ideology: What is Codes aur Khana?</h3>
+                    <p><b>Codes aur Khana</b> koi fake narrative ya fancy software framework nahi hai—it represents the absolute raw ground reality of survival and scaling. Yeh ek straightforward mindset hai jahan hum <b>sustenance (Khana)</b> aur <b>pure digital asset creation (Codes)</b> ko direct connect karte hain. True engine builders complex theoretical hypes par time waste nahi karte; wo seedha core scripts likhte hain jo output deliver karein.</p>
                     
-                    <h3>2. How Other Parties Fool Us & Scam</h3>
-                    <p>Baki log aur traditional setups public ke dimaag se khelte hain. Wo bade, unrealistic dreams bechte hain jinka actual field se koi connection nahi hota. Wo aapko bolenge ki aap "unemployed" aur "poor" ho, sirf isliye taaki aapka confidence down ho jaye aur aap unke systematic cycles aur pre-made templates par dependent bane raho. Wo solution dene ke naam par aapko lifelong dependent bana dete hain.</p>
+                    <h3>2. Why Codes aur Khana in the Reality Side?</h3>
+                    <p>Traditional systems hamesha badi, unverified baatein karte hain par direct execution ko completely ignore karte hain. Hum systems par tabs lagakar unhe ground layout par execute karte hain. True monetization tab khadi hoti hai jab aap core structures likh kar customer interface direct validate karte hain, jisse absolute revenue run hota hai jo tables par direct baseline support lata hai.</p>
+
+                    <div class="money-strategy">
+                        <h4 style="text-transform: uppercase; margin-bottom: 10px; color: var(--accent-green);">📈 HOW IT HELPS EVERYONE GROW IN CODES & BUSINESS:</h4>
+                        <p><b>• Zero Dependency Growth:</b> Pre-made third-party platforms ya complicated frameworks ko blindly use karne ke bajaye clean, raw stack command code logic se systems stand hote hain.</p>
+                        <p><b>• Direct Asset Creation:</b> Jab aap direct operational components code karte hain (jaise direct client web configurations or functional creator networks), aap genuine scalable enterprise models tayyar karte hain jo straight value build karte hain.</p>
+                    </div>
+                </div>
+                <button class="btn-expand" onclick="toggle('content_codes', this)">Read Full Details <span>↓</span></button>
+            </article>
+
+            <article class="post" id="no-money">
+                <span class="post-tag">MONETIZATION / 03 // REAL_ANALYSIS</span>
+                <h2>Why Web Developers & New Founders Don't Make Money</h2>
+                <p class="post-excerpt">Tutorial hell, over-engineering, aur selling skills na seekhna—sabse bade reasons jis wajah se real coding knowledge hone ke baad bhi log zero revenue par atke rehte hain.</p>
+                
+                <div id="content_money" class="full-content">
+                    <h3>1. The Over-Engineering Trap</h3>
+                    <p>New developers aur founders sabse badi galti ye karte hain ki wo product ko market mein launch karne se pehle use bekar ke complex features aur frameworks se load kar dete hain. Unhe lagta hai ki Next.js, Redux, multi-cloud clusters setup karne se revenue aayega. Reality ye hai ki user ko sirf functional clean tools chahiye jo unka kaam aasan karein. Jab tak product build hota hai, founder ka motivation khatam ho jata hai.</p>
+                    
+                    <h3>2. Zero Focus on Distribution & Selling</h3>
+                    <p>Aap duniya ka sabse behtareen system code kar lijiye, par agar aap use sell nahi kar sakte ya un target creators/workers tak nahi pahuncha sakte, toh aapki business valuation zero hai. Developers har roz naye languages seekhne mein time lagate hain, par 1 ghanta bhi direct marketing ya consumer acquisition par focus nahi karte. Business bina user conversion ke survive nahi karta.</p>
 
                     <div class="ai-strategy">
-                        <h4 style="text-transform: uppercase; margin-bottom: 10px;">⚠️ THE INDEPENDENCE ARCHITECTURE:</h4>
-                        <p><b>• Kill Dependency:</b> Pre-made complex tools ko blindly copy karne ke bajaye apna local control (HTML/CSS/JS) khud execute karna seekho.</p>
-                        <p><b>• Raw Value Creation:</b> Market hamesha functional solutions ko pay karti hai, fake hypes ko nahi.</p>
+                        <h4 style="text-transform: uppercase; margin-bottom: 10px; color: var(--accent-rust);">⚠️ CRITICAL STRATEGY LEAKS:</h4>
+                        <p><b>• Tutorial Hell:</b> Har din naya component tutorial dekhna par real independent functional products launch na karna.</p>
+                        <p><b>• Ignoring Core Monetization:</b> Product mein payment systems ya business baseline strategy pehle din se integrated na rakhna.</p>
                     </div>
 
-                    <h3>3. How Codes aur Khana Helps Everyone Grow</h3>
-                    <p>Jab aap unke fake tags ko sunna band kar dete ho, tab aap actual growth par focus karte ho. Codes aur Khana aapko seekhata hai ki kaise directly core logic likh kar real-world tools (jaise dynamic job portals or subscription channels) banaye jaate hain. Jab aapki code logic solid hoti hai, tab aap seedha product generate karte ho jo customer ki screen par transform hoti hai, aur wahi se aapka business scaling build hota hai.</p>
+                    <h3>3. Falling For "Hype" Frameworks</h3>
+                    <p>Har dusre din social media par naye tech stacks promote kiye jaate hain. Developers product ka baseline architecture stable karne ke bajaye lagatar codes rewrite karte hain taaki wo 'cool' lag sakein. Asli money drive tab hoti hai jab aap plain logic, solid direct conversions (jaise HamaraMarket configurations), aur client interfaces par straight command bana kar launch karte hain.</p>
                 </div>
-                <button class="btn-expand" onclick="toggle('content_doc', this)">Read Documentation <span>↓</span></button>
-            </article>
-
-            <article class="post" id="dev-strategy">
-                <span class="post-tag">REQ / 02 // DEV STRATEGY</span>
-                <h2>Day 02: AI Leverage vs Core Logic Mastery</h2>
-                <p class="post-excerpt">2026 mein AI tools code generate kar sakte hain, par ek real engineer banne ke liye aapko "Engine" ka chalna khud samajhna hoga.</p>
-                
-                <div id="content3" class="full-content">
-                    <p>Aaj ke time mein har koi AI use karke code generate kar raha hai. Iska nuksan yeh ho raha hai ki juniors ka foundational logic weak ho jata hai. Agar aapko web development mein sach mein 1% developers mein aana hai, toh aapko AI ko apna slave banana hoga, master nahi.</p>
-                    
-                    <h3>Own Skill: The Vanilla Blueprint</h3>
-                    <p>AI hamesha perfect code nahi deta; aksar wo bugged scripts generate karta hai. Jab tak aapka Vanilla JavaScript aur layouts par command nahi hoga, tab tak aap AI ke errors ko fix nahi kar payenge.</p>
-                    
-                    <div class="code-snippet">
-                        const processData = (data) => data.filter(item => item.isActive);
-                    </div>
-                </div>
-                <button class="btn-expand" onclick="toggle('content3', this)">Read Full Details <span>↓</span></button>
-            </article>
-
-            <article class="post">
-                <span class="post-tag">REQ / 03 // ARCHITECTURE</span>
-                <h2>Day 01: Next.js 15, Shadcn UI & Deployment</h2>
-                <p class="post-excerpt">Modern fast deployment workflows aur premium styling structures create karna seekhein jo actual projects mein real money drive karte hain.</p>
-                
-                <div id="content2" class="full-content">
-                    <p>Next.js modern web apps banane ka efficient standard framework hai. Aur jab aap Shadcn UI merge karte hain, tab direct production ready interfaces build hote hain.</p>
-
-                    <div class="code-snippet">
-                        $ npx create-next-app@latest && npx shadcn-ui@latest init
-                    </div>
-                </div>
-                <button class="btn-expand" onclick="toggle('content2', this)">Read Full Details <span>↓</span></button>
+                <button class="btn-expand" onclick="toggle('content_money', this)">Read Full Details <span>↓</span></button>
             </article>
 
             <footer id="reality" class="reality-disclaimer">
                 <div class="reality-title">
                     <div class="status-dot">✓</div>
-                    We Talk Reality
+                    We Talk Reality and True
                 </div>
                 <p class="reality-text">
-                    We are true and we talk reality, not fake. We share all reality here unfiltered. We are completely built different—we are not like others. We stand by real work and raw execution.
+                    We are true and we talk reality, not fake. We share all reality here completely unfiltered. We are built completely different—we stand by actual custom development, heavy logic execution, and raw production numbers.
+                </p>
+                <a href="https://cockroachjantaparty.org" target="_blank" class="party-tag-link">
+                    <div class="party-tag">WE SUPPORT COCKROACH JANATA PARTY ↗</div>
+                </a>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function toggle(id, btn) {
+            const content = document.getElementById(id);
+            const isHidden = content.style.display === "none" || content.style.display === "";
+            
+            if (isHidden) {
+                content.style.display = "block";
+                gsap.from(content, { opacity: 0, y: -5, duration: 0.2 });
+                btn.innerHTML = "Close Content <span>↑</span>";
+                btn.style.background = "var(--text-dark)";
+                btn.style.color = "var(--bg-cream)";
+            } else {
+                content.style.display = "none";
+                btn.innerHTML = "Read Content <span>↓</span>";
+                btn.style.background = "var(--accent-rust)";
+                btn.style.color = "#fff";
+            }
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santanu Konwar | Reality Cluster</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        :root {
+            /* Exact Color Palette From The Image */
+            --bg-cream: #e6dfd3;
+            --card-base: #d2cbb8;
+            --text-dark: #14120e;
+            --accent-rust: #af4419;
+            --accent-green: #114c2b;
+            --border-width: 2px;
+            --shadow-offset: 5px;
+            --shadow-offset-mobile: 4px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg-cream); 
+            color: var(--text-dark); 
+            font-family: 'Space Grotesk', sans-serif; 
+            line-height: 1.5;
+            padding-bottom: 40px;
+            background-image: radial-gradient(var(--text-dark) 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            overflow-x: hidden;
+        }
+
+        /* --- Responsive Neo-Brutalist Sticky Navbar --- */
+        nav {
+            position: sticky; top: 0;
+            background: var(--bg-cream);
+            border-bottom: var(--border-width) solid var(--text-dark);
+            padding: 15px 4%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+        }
+        .logo { 
+            font-weight: 700; font-size: 1rem; letter-spacing: 0.5px;
+            text-transform: uppercase; display: flex; flex-direction: column;
+            line-height: 1.1;
+        }
+        .logo span { font-size: 0.6rem; font-family: 'Fira Code', monospace; font-weight: 400; }
+        
+        .nav-links { display: flex; gap: 20px; font-weight: 500; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); }
+        
+        /* --- Premium Heavy Interactive Top Button --- */
+        .hire-btn {
+            background: var(--text-dark); color: var(--bg-cream);
+            text-decoration: none; padding: 10px 18px; font-weight: 700;
+            text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px;
+            border: var(--border-width) solid var(--text-dark);
+            box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px #000;
+            transition: transform 0.05s ease, box-shadow 0.05s ease;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .hire-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        /* --- Master Layout Grid (PC & Mobile Adaptive) --- */
+        .main-container {
+            max-width: 1100px; margin: 30px auto;
+            display: grid; grid-template-columns: 280px 1fr;
+            gap: 30px; padding: 0 4%;
+        }
+
+        /* --- Sidebar Profile Box --- */
+        .profile-card {
+            background: var(--card-base); 
+            border: var(--border-width) solid var(--text-dark);
+            border-radius: 4px; padding: 25px 20px; text-align: center;
+            position: sticky; top: 100px;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
+        }
+        
+        .pfp {
+            width: 75px; height: 75px; background: var(--text-dark);
+            border-radius: 50%; margin: 0 auto 15px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 700; color: var(--bg-cream);
+            border: var(--border-width) solid var(--text-dark);
+        }
+        
+        .profile-card h2 { font-size: 1.35rem; font-weight: 700; text-transform: uppercase; }
+        .profile-card p { font-size: 0.85rem; margin-top: 10px; font-weight: 500; color: rgba(20,18,14,0.9); }
+
+        .social-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 20px; }
+        .s-link {
+            text-decoration: none; color: var(--text-dark); font-size: 0.75rem; font-weight: 700;
+            padding: 8px; border: var(--border-width) solid var(--text-dark); background: var(--bg-cream);
+            text-transform: uppercase; font-family: 'Fira Code', monospace; letter-spacing: 0.5px;
+            transition: all 0.05s ease;
+        }
+        .s-link:active { 
+            background: var(--text-dark); color: var(--bg-cream);
+        }
+
+        /* --- Core Blog Posts Container --- */
+        .post {
+            background: var(--card-base); 
+            border: var(--border-width) solid var(--text-dark);
+            padding: 30px; margin-bottom: 30px; position: relative;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
+        }
+        
+        .post-tag { 
+            font-family: 'Fira Code', monospace; 
+            font-size: 0.7rem; font-weight: 700; 
+            margin-bottom: 10px; display: inline-block;
+            text-transform: uppercase; color: var(--accent-rust);
+        }
+        
+        .post h2 { font-size: 1.75rem; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; line-height: 1.2; }
+        .post-excerpt { font-size: 1rem; margin-bottom: 18px; font-weight: 500; }
+
+        /* --- Dynamic Collapsible Inside Layout --- */
+        .full-content { display: none; margin-top: 20px; border-top: var(--border-width) solid var(--text-dark); padding-top: 20px; }
+        .full-content p { margin-bottom: 15px; font-size: 0.95rem; color: #1c1a16; }
+        .full-content h3 { margin: 20px 0 10px; font-size: 1.15rem; text-transform: uppercase; color: var(--accent-rust); }
+        
+        .code-snippet {
+            background: var(--bg-cream); border: var(--border-width) solid var(--text-dark);
+            padding: 12px 15px; margin: 15px 0;
+            font-family: 'Fira Code', monospace; color: var(--text-dark); font-size: 0.85rem;
+            font-weight: 600; overflow-x: auto; white-space: nowrap;
+        }
+
+        .money-strategy, .ai-strategy {
+            padding: 15px; margin: 20px 0;
+            border: var(--border-width) solid var(--text-dark); background: var(--bg-cream);
+            box-shadow: 3px 3px 0px var(--text-dark);
+        }
+        .money-strategy { border-left: 8px solid var(--accent-green); }
+        .ai-strategy { border-left: 8px solid var(--accent-rust); }
+        
+        .money-strategy p, .ai-strategy p { font-size: 0.9rem; margin-bottom: 8px; }
+        .money-strategy p:last-child, .ai-strategy p:last-child { margin-bottom: 0; }
+
+        /* --- Universal Expand/Collapse Interactive Buttons --- */
+        .btn-expand {
+            background: var(--accent-rust); color: #fff; 
+            border: var(--border-width) solid var(--text-dark);
+            padding: 10px 20px; font-weight: 700;
+            cursor: pointer; font-size: 0.8rem; font-family: 'Fira Code', monospace;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            box-shadow: 4px 4px 0px var(--text-dark);
+            transition: transform 0.05s ease, box-shadow 0.05s ease;
+            outline: none;
+        }
+        .btn-expand:active { 
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--text-dark);
+        }
+
+        /* --- Bottom Cockroach Footer Support Block --- */
+        .reality-disclaimer {
+            margin-top: 40px;
+            background: var(--card-base);
+            border: var(--border-width) solid var(--text-dark);
+            padding: 25px;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
+            position: relative;
+        }
+        .reality-title {
+            font-size: 1.15rem; font-weight: 700; margin-bottom: 10px;
+            text-transform: uppercase; display: flex; align-items: center; gap: 8px;
+        }
+        .reality-title .status-dot {
+            width: 20px; height: 20px; background: var(--accent-green);
+            border: var(--border-width) solid var(--text-dark); border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 0.65rem;
+        }
+        .reality-text { font-size: 0.9rem; font-weight: 500; color: var(--text-dark); }
+        
+        .party-tag-link {
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .party-tag {
+            background: var(--accent-rust); color: #fff;
+            border: var(--border-width) solid var(--text-dark);
+            padding: 8px 16px; font-weight: 700; text-transform: uppercase;
+            font-family: 'Fira Code', monospace; font-size: 0.75rem;
+            box-shadow: 3px 3px 0px var(--text-dark);
+            transition: transform 0.05s ease, box-shadow 0.05s ease;
+        }
+        .party-tag-link:active .party-tag {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px var(--text-dark);
+        }
+
+        /* ==========================================
+           CRITICAL RESPONSIVE MEDIA QUERIES (PC vs Mobile)
+           ========================================== */
+        @media (min-width: 901px) {
+            nav { padding: 20px 6%; }
+            .logo { font-size: 1.15rem; }
+            .logo span { font-size: 0.65rem; }
+            .hire-btn { padding: 12px 24px; font-size: 0.85rem; box-shadow: var(--shadow-offset) var(--shadow-offset) 0px #000; }
+        }
+
+        @media (max-width: 900px) { 
+            .main-container { 
+                grid-template-columns: 1fr; 
+                margin: 20px auto;
+                gap: 25px;
+            } 
+            .profile-card { 
+                position: relative; top: 0; 
+                box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px var(--text-dark);
+            } 
+            .post {
+                padding: 20px;
+                box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px var(--text-dark);
+            }
+            .post h2 { font-size: 1.4rem; }
+            .post-excerpt { font-size: 0.9rem; }
+            .nav-links { display: none; }
+            
+            .reality-disclaimer {
+                padding: 20px;
+                box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px var(--text-dark);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            CODES AUR KHANA
+            <span>SANTANU_DEV • EST. 2026</span>
+        </div>
+        <div class="nav-links">
+            <a href="#fail-analysis">Failure Analysis</a>
+            <a href="#codes-khana">Codes aur Khana</a>
+            <a href="#no-money">Founder Truth</a>
+        </div>
+        <a href="mailto:santanukonwar@gmail.com" class="hire-btn">GMAIL ME →</a>
+    </nav>
+
+    <div class="main-container">
+        <aside>
+            <div class="profile-card">
+                <div class="pfp">SK</div>
+                <h2>Santanu Konwar</h2>
+                <p>Founder of HamaraMarket & HyperCreators. Speaking absolute truth, executing custom builds by code logic.</p>
+                
+      <div class="social-grid">
+                    <a href="https://www.linkedin.com/in/codes-aur-khana-a1b3b6407/" class="s-link" target="_blank">LINKEDIN</a>
+                    <a href="https://www.youtube.com/@codenet-n5i" class="s-link" target="_blank">YOUTUBE</a>
+                    <a href="https://twitter.com" class="s-link" target="_blank">TWITTER</a>
+                    <a href="https://www.instagram.com/codes_aur_khana/" class="s-link" target="_blank">INSTAGRAM</a>
+                </div>
+        </aside>
+
+        <main>
+            <article class="post" id="fail-analysis">
+                <span class="post-tag">DOCUMENTATION / 01 // GROUND_REALITY</span>
+                <h2>How India's Average & Business People Fail: The Unfiltered Truth</h2>
+                <p class="post-excerpt">Hype, high interest debts, fake status symbols, aur poor execution strategies kaise modern Indian businesses aur average individual minds ko trap karti hain—read the complete logical breakdown.</p>
+                
+                <div id="content_fail" class="full-content">
+                    <h3>1. The Average Person's Trap: Degree vs Real Skills</h3>
+                    <p>India mein 90% average log isliye fail hote hain kyunki wo traditional institutional systems ke beche huye hype par trust karte hain. Wo lakhon rupaye aisi degrees par kharch kar dete hain jahan outdated theories padhai jaati hain, aur jab tak wo graduate hote hain, market un skills ko zero value deta hai. Wo systems par dependent rehte hain aur jab job nahi milti toh depressed ho jaate hain, jabki real asset-building aur core scaling par koi focus nahi karta.</p>
+                    
+                    <h3>2. The Business Failure Blueprint: Hype Over Cash Flow</h3>
+                    <p>Indian business owner chahe chota ho ya bada, aksar ground execution ko chhodkar external validation ke piche bhagta hai. Logos, heavy office spaces, fancy tools aur high-interest traditional business loans (debt) le kar capital burn kar diya jata hai bina solid customer baseline validation ke. Jab tak real cash flow start hota hai, unki liquidity crash kar jati hai.</p>
+
+                    <div class="ai-strategy">
+                        <h4 style="text-transform: uppercase; margin-bottom: 10px; color: var(--accent-rust);">⚠️ SYSTEM CRITICAL ERROR LOCATIONS:</h4>
+                        <p><b>• Over-leveraging on Debt:</b> Bina proof-of-concept ke bade loops par finance ya leverage uthana aur operations block karna.</p>
+                        <p><b>• Middleman Reliance:</b> Direct builders banne ki jagah distribution aur agency structures ko handle karne ke liye intermediaries par zyada focusรักษา.</p>
+                    </div>
+
+                    <h3>3. The Poor Mindset vs Raw Coding Strategy</h3>
+                    <p>Traditional narrative logo ko 'unemployed' aur 'poor' bol kar isliye convince rakhta hai taaki wo schemes ke dependent bane rahein. Local scale business ya builder jab tak apna customized architecture khud handle nahi karega (bina fixed expensive platforms par depend huye), tab tak scalability zero rahegi. Real growth tab aati hai jab aap fake branding aur templates chhod kar reality zone mein cash flow par command karte hain.</p>
+                </div>
+                <button class="btn-expand" onclick="toggle('content_fail', this)">Read Documentation <span>↓</span></button>
+            </article>
+
+            <article class="post" id="codes-khana">
+                <span class="post-tag">DOCUMENTATION / 02 // REALITY_SIDE</span>
+                <h2>What is Codes aur Khana & Why They Help All Grow</h2>
+                <p class="post-excerpt">Sustenance aur logic block ko merge karke bina kisi third-party network aur templates ke directly business scalable asset banana hi asli power hai.</p>
+                
+                <div id="content_codes" class="full-content">
+                    <h3>1. Core Ideology: What is Codes aur Khana?</h3>
+                    <p><b>Codes aur Khana</b> koi fake narrative ya fancy software framework nahi hai—it represents the absolute raw ground reality of survival and scaling. Yeh ek straightforward mindset hai jahan hum <b>sustenance (Khana)</b> aur <b>pure digital asset creation (Codes)</b> ko direct connect karte hain. True engine builders complex theoretical hypes par time waste nahi karte; wo seedha core scripts likhte hain jo output deliver karein.</p>
+                    
+                    <h3>2. Why Codes aur Khana in the Reality Side?</h3>
+                    <p>Traditional systems hamesha badi, unverified baatein karte hain par direct execution ko completely ignore karte hain. Hum systems par tabs lagakar unhe ground layout par execute karte hain. True monetization tab khadi hoti hai jab aap core structures likh kar customer interface direct validate karte hain, jisse absolute revenue run hota hai jo tables par direct baseline support lata hai.</p>
+
+                    <div class="money-strategy">
+                        <h4 style="text-transform: uppercase; margin-bottom: 10px; color: var(--accent-green);">📈 HOW IT HELPS EVERYONE GROW IN CODES & BUSINESS:</h4>
+                        <p><b>• Zero Dependency Growth:</b> Pre-made third-party platforms ya complicated frameworks ko blindly use karne ke bajaye clean, raw stack command code logic se systems stand hote hain.</p>
+                        <p><b>• Direct Asset Creation:</b> Jab aap direct operational components code karte hain (jaise direct client web configurations or functional creator networks), aap genuine scalable enterprise models tayyar karte hain jo straight value build karte hain.</p>
+                    </div>
+                </div>
+                <button class="btn-expand" onclick="toggle('content_codes', this)">Read Full Details <span>↓</span></button>
+            </article>
+
+            <article class="post" id="no-money">
+                <span class="post-tag">MONETIZATION / 03 // REAL_ANALYSIS</span>
+                <h2>Why Web Developers & New Founders Don't Make Money</h2>
+                <p class="post-excerpt">Tutorial hell, over-engineering, aur selling skills na seekhna—sabse bade reasons jis wajah se real coding knowledge hone ke baad bhi log zero revenue par atke rehte hain.</p>
+                
+                <div id="content_money" class="full-content">
+                    <h3>1. The Over-Engineering Trap</h3>
+                    <p>New developers aur founders sabse badi galti ye karte hain ki wo product ko market mein launch karne se pehle use bekar ke complex features aur frameworks se load kar dete hain. Unhe lagta hai ki Next.js, Redux, multi-cloud clusters setup karne se revenue aayega. Reality ye hai ki user ko sirf functional clean tools chahiye jo unka kaam aasan karein. Jab tak product build hota hai, founder ka motivation khatam ho jata hai.</p>
+                    
+                    <h3>2. Zero Focus on Distribution & Selling</h3>
+                    <p>Aap duniya ka sabse behtareen system code kar lijiye, par agar aap use sell nahi kar sakte ya un target creators/workers tak nahi pahuncha sakte, toh aapki business valuation zero hai. Developers har roz naye languages seekhne mein time lagate hain, par 1 ghanta bhi direct marketing ya consumer acquisition par focus nahi karte. Business bina user conversion ke survive nahi karta.</p>
+
+                    <div class="ai-strategy">
+                        <h4 style="text-transform: uppercase; margin-bottom: 10px; color: var(--accent-rust);">⚠️ CRITICAL STRATEGY LEAKS:</h4>
+                        <p><b>• Tutorial Hell:</b> Har din naya component tutorial dekhna par real independent functional products launch na karna.</p>
+                        <p><b>• Ignoring Core Monetization:</b> Product mein payment systems ya business baseline strategy pehle din se integrated na rakhna.</p>
+                    </div>
+
+                    <h3>3. Falling For "Hype" Frameworks</h3>
+                    <p>Har dusre din social media par naye tech stacks promote kiye jaate hain. Developers product ka baseline architecture stable karne ke bajaye lagatar codes rewrite karte hain taaki wo 'cool' lag sakein. Asli money drive tab hoti hai jab aap plain logic, solid direct conversions (jaise HamaraMarket configurations), aur client interfaces par straight command bana kar launch karte hain.</p>
+                </div>
+                <button class="btn-expand" onclick="toggle('content_money', this)">Read Full Details <span>↓</span></button>
+            </article>
+
+            <footer id="reality" class="reality-disclaimer">
+                <div class="reality-title">
+                    <div class="status-dot">✓</div>
+                    We Talk Reality and True
+                </div>
+                <p class="reality-text">
+                    We are true and we talk reality, not fake. We share all reality here completely unfiltered. We are built completely different—we stand by actual custom development, heavy logic execution, and raw production numbers.
+                </p>
+                <a href="https://cockroachjantaparty.org" target="_blank" class="party-tag-link">
+                    <div class="party-tag">WE SUPPORT COCKROACH JANATA PARTY ↗</div>
+                </a>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function toggle(id, btn) {
+            const content = document.getElementById(id);
+            const isHidden = content.style.display === "none" || content.style.display === "";
+            
+            if (isHidden) {
+                content.style.display = "block";
+                gsap.from(content, { opacity: 0, y: -5, duration: 0.2 });
+                btn.innerHTML = "Close Content <span>↑</span>";
+                btn.style.background = "var(--text-dark)";
+                btn.style.color = "var(--bg-cream)";
+            } else {
+                content.style.display = "none";
+                btn.innerHTML = "Read Content <span>↓</span>";
+                btn.style.background = "var(--accent-rust)";
+                btn.style.color = "#fff";
+            }
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santanu Konwar | Reality Cluster</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        :root {
+            /* Exact Color Palette From The Image */
+            --bg-cream: #e6dfd3;
+            --card-base: #d2cbb8;
+            --text-dark: #14120e;
+            --accent-rust: #af4419;
+            --accent-green: #114c2b;
+            --border-width: 2px;
+            --shadow-offset: 5px;
+            --shadow-offset-mobile: 4px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg-cream); 
+            color: var(--text-dark); 
+            font-family: 'Space Grotesk', sans-serif; 
+            line-height: 1.5;
+            padding-bottom: 40px;
+            background-image: radial-gradient(var(--text-dark) 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            overflow-x: hidden;
+        }
+
+        /* --- Responsive Neo-Brutalist Sticky Navbar --- */
+        nav {
+            position: sticky; top: 0;
+            background: var(--bg-cream);
+            border-bottom: var(--border-width) solid var(--text-dark);
+            padding: 15px 4%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+        }
+        .logo { 
+            font-weight: 700; font-size: 1rem; letter-spacing: 0.5px;
+            text-transform: uppercase; display: flex; flex-direction: column;
+            line-height: 1.1;
+        }
+        .logo span { font-size: 0.6rem; font-family: 'Fira Code', monospace; font-weight: 400; }
+        
+        .nav-links { display: flex; gap: 20px; font-weight: 500; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); }
+        
+        /* --- Premium Heavy Interactive Top Button --- */
+        .hire-btn {
+            background: var(--text-dark); color: var(--bg-cream);
+            text-decoration: none; padding: 10px 18px; font-weight: 700;
+            text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px;
+            border: var(--border-width) solid var(--text-dark);
+            box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px #000;
+            transition: transform 0.05s ease, box-shadow 0.05s ease;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .hire-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        /* --- Master Layout Grid (PC & Mobile Adaptive) --- */
+        .main-container {
+            max-width: 1100px; margin: 30px auto;
+            display: grid; grid-template-columns: 280px 1fr;
+            gap: 30px; padding: 0 4%;
+        }
+
+        /* --- Sidebar Profile Box --- */
+        .profile-card {
+            background: var(--card-base); 
+            border: var(--border-width) solid var(--text-dark);
+            border-radius: 4px; padding: 25px 20px; text-align: center;
+            position: sticky; top: 100px;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
+        }
+        
+        .pfp {
+            width: 75px; height: 75px; background: var(--text-dark);
+            border-radius: 50%; margin: 0 auto 15px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 700; color: var(--bg-cream);
+            border: var(--border-width) solid var(--text-dark);
+        }
+        
+        .profile-card h2 { font-size: 1.35rem; font-weight: 700; text-transform: uppercase; }
+        .profile-card p { font-size: 0.85rem; margin-top: 10px; font-weight: 500; color: rgba(20,18,14,0.9); }
+
+        .social-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 20px; }
+        .s-link {
+            text-decoration: none; color: var(--text-dark); font-size: 0.75rem; font-weight: 700;
+            padding: 8px; border: var(--border-width) solid var(--text-dark); background: var(--bg-cream);
+            text-transform: uppercase; font-family: 'Fira Code', monospace; letter-spacing: 0.5px;
+            transition: all 0.05s ease;
+        }
+        .s-link:active { 
+            background: var(--text-dark); color: var(--bg-cream);
+        }
+
+        /* --- Core Blog Posts Container --- */
+        .post {
+            background: var(--card-base); 
+            border: var(--border-width) solid var(--text-dark);
+            padding: 30px; margin-bottom: 30px; position: relative;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
+        }
+        
+        .post-tag { 
+            font-family: 'Fira Code', monospace; 
+            font-size: 0.7rem; font-weight: 700; 
+            margin-bottom: 10px; display: inline-block;
+            text-transform: uppercase; color: var(--accent-rust);
+        }
+        
+        .post h2 { font-size: 1.75rem; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; line-height: 1.2; }
+        .post-excerpt { font-size: 1rem; margin-bottom: 18px; font-weight: 500; }
+
+        /* --- Dynamic Collapsible Inside Layout --- */
+        .full-content { display: none; margin-top: 20px; border-top: var(--border-width) solid var(--text-dark); padding-top: 20px; }
+        .full-content p { margin-bottom: 15px; font-size: 0.95rem; color: #1c1a16; }
+        .full-content h3 { margin: 20px 0 10px; font-size: 1.15rem; text-transform: uppercase; color: var(--accent-rust); }
+        
+        .code-snippet {
+            background: var(--bg-cream); border: var(--border-width) solid var(--text-dark);
+            padding: 12px 15px; margin: 15px 0;
+            font-family: 'Fira Code', monospace; color: var(--text-dark); font-size: 0.85rem;
+            font-weight: 600; overflow-x: auto; white-space: nowrap;
+        }
+
+        .money-strategy, .ai-strategy {
+            padding: 15px; margin: 20px 0;
+            border: var(--border-width) solid var(--text-dark); background: var(--bg-cream);
+            box-shadow: 3px 3px 0px var(--text-dark);
+        }
+        .money-strategy { border-left: 8px solid var(--accent-green); }
+        .ai-strategy { border-left: 8px solid var(--accent-rust); }
+        
+        .money-strategy p, .ai-strategy p { font-size: 0.9rem; margin-bottom: 8px; }
+        .money-strategy p:last-child, .ai-strategy p:last-child { margin-bottom: 0; }
+
+        /* --- Universal Expand/Collapse Interactive Buttons --- */
+        .btn-expand {
+            background: var(--accent-rust); color: #fff; 
+            border: var(--border-width) solid var(--text-dark);
+            padding: 10px 20px; font-weight: 700;
+            cursor: pointer; font-size: 0.8rem; font-family: 'Fira Code', monospace;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            box-shadow: 4px 4px 0px var(--text-dark);
+            transition: transform 0.05s ease, box-shadow 0.05s ease;
+            outline: none;
+        }
+        .btn-expand:active { 
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--text-dark);
+        }
+
+        /* --- Bottom Cockroach Footer Support Block --- */
+        .reality-disclaimer {
+            margin-top: 40px;
+            background: var(--card-base);
+            border: var(--border-width) solid var(--text-dark);
+            padding: 25px;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
+            position: relative;
+        }
+        .reality-title {
+            font-size: 1.15rem; font-weight: 700; margin-bottom: 10px;
+            text-transform: uppercase; display: flex; align-items: center; gap: 8px;
+        }
+        .reality-title .status-dot {
+            width: 20px; height: 20px; background: var(--accent-green);
+            border: var(--border-width) solid var(--text-dark); border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 0.65rem;
+        }
+        .reality-text { font-size: 0.9rem; font-weight: 500; color: var(--text-dark); }
+        
+        .party-tag-link {
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .party-tag {
+            background: var(--accent-rust); color: #fff;
+            border: var(--border-width) solid var(--text-dark);
+            padding: 8px 16px; font-weight: 700; text-transform: uppercase;
+            font-family: 'Fira Code', monospace; font-size: 0.75rem;
+            box-shadow: 3px 3px 0px var(--text-dark);
+            transition: transform 0.05s ease, box-shadow 0.05s ease;
+        }
+        .party-tag-link:active .party-tag {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px var(--text-dark);
+        }
+
+        /* ==========================================
+           CRITICAL RESPONSIVE MEDIA QUERIES (PC vs Mobile)
+           ========================================== */
+        @media (min-width: 901px) {
+            nav { padding: 20px 6%; }
+            .logo { font-size: 1.15rem; }
+            .logo span { font-size: 0.65rem; }
+            .hire-btn { padding: 12px 24px; font-size: 0.85rem; box-shadow: var(--shadow-offset) var(--shadow-offset) 0px #000; }
+        }
+
+        @media (max-width: 900px) { 
+            .main-container { 
+                grid-template-columns: 1fr; 
+                margin: 20px auto;
+                gap: 25px;
+            } 
+            .profile-card { 
+                position: relative; top: 0; 
+                box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px var(--text-dark);
+            } 
+            .post {
+                padding: 20px;
+                box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px var(--text-dark);
+            }
+            .post h2 { font-size: 1.4rem; }
+            .post-excerpt { font-size: 0.9rem; }
+            .nav-links { display: none; }
+            
+            .reality-disclaimer {
+                padding: 20px;
+                box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px var(--text-dark);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            CODES AUR KHANA
+            <span>SANTANU_DEV • EST. 2026</span>
+        </div>
+        <div class="nav-links">
+            <a href="#fail-analysis">Failure Analysis</a>
+            <a href="#codes-khana">Codes aur Khana</a>
+            <a href="#no-money">Founder Truth</a>
+        </div>
+        <a href="mailto:santanukonwar@gmail.com" class="hire-btn">GMAIL ME →</a>
+    </nav>
+
+    <div class="main-container">
+        <aside>
+            <div class="profile-card">
+                <div class="pfp">SK</div>
+                <h2>Santanu Konwar</h2>
+                <p>Founder of HamaraMarket & HyperCreators. Speaking absolute truth, executing custom builds by code logic.</p>
+                
+      <div class="social-grid">
+                    <a href="https://www.linkedin.com/in/codes-aur-khana-a1b3b6407/" class="s-link" target="_blank">LINKEDIN</a>
+                    <a href="https://www.youtube.com/@codenet-n5i" class="s-link" target="_blank">YOUTUBE</a>
+                    <a href="https://twitter.com" class="s-link" target="_blank">TWITTER</a>
+                    <a href="https://www.instagram.com/codes_aur_khana/" class="s-link" target="_blank">INSTAGRAM</a>
+                </div>
+        </aside>
+
+        <main>
+            <article class="post" id="fail-analysis">
+                <span class="post-tag">DOCUMENTATION / 01 // GROUND_REALITY</span>
+                <h2>How India's Average & Business People Fail: The Unfiltered Truth</h2>
+                <p class="post-excerpt">Hype, high interest debts, fake status symbols, aur poor execution strategies kaise modern Indian businesses aur average individual minds ko trap karti hain—read the complete logical breakdown.</p>
+                
+                <div id="content_fail" class="full-content">
+                    <h3>1. The Average Person's Trap: Degree vs Real Skills</h3>
+                    <p>India mein 90% average log isliye fail hote hain kyunki wo traditional institutional systems ke beche huye hype par trust karte hain. Wo lakhon rupaye aisi degrees par kharch kar dete hain jahan outdated theories padhai jaati hain, aur jab tak wo graduate hote hain, market un skills ko zero value deta hai. Wo systems par dependent rehte hain aur jab job nahi milti toh depressed ho jaate hain, jabki real asset-building aur core scaling par koi focus nahi karta.</p>
+                    
+                    <h3>2. The Business Failure Blueprint: Hype Over Cash Flow</h3>
+                    <p>Indian business owner chahe chota ho ya bada, aksar ground execution ko chhodkar external validation ke piche bhagta hai. Logos, heavy office spaces, fancy tools aur high-interest traditional business loans (debt) le kar capital burn kar diya jata hai bina solid customer baseline validation ke. Jab tak real cash flow start hota hai, unki liquidity crash kar jati hai.</p>
+
+                    <div class="ai-strategy">
+                        <h4 style="text-transform: uppercase; margin-bottom: 10px; color: var(--accent-rust);">⚠️ SYSTEM CRITICAL ERROR LOCATIONS:</h4>
+                        <p><b>• Over-leveraging on Debt:</b> Bina proof-of-concept ke bade loops par finance ya leverage uthana aur operations block karna.</p>
+                        <p><b>• Middleman Reliance:</b> Direct builders banne ki jagah distribution aur agency structures ko handle karne ke liye intermediaries par zyada focusรักษา.</p>
+                    </div>
+
+                    <h3>3. The Poor Mindset vs Raw Coding Strategy</h3>
+                    <p>Traditional narrative logo ko 'unemployed' aur 'poor' bol kar isliye convince rakhta hai taaki wo schemes ke dependent bane rahein. Local scale business ya builder jab tak apna customized architecture khud handle nahi karega (bina fixed expensive platforms par depend huye), tab tak scalability zero rahegi. Real growth tab aati hai jab aap fake branding aur templates chhod kar reality zone mein cash flow par command karte hain.</p>
+                </div>
+                <button class="btn-expand" onclick="toggle('content_fail', this)">Read Documentation <span>↓</span></button>
+            </article>
+
+            <article class="post" id="codes-khana">
+                <span class="post-tag">DOCUMENTATION / 02 // REALITY_SIDE</span>
+                <h2>What is Codes aur Khana & Why They Help All Grow</h2>
+                <p class="post-excerpt">Sustenance aur logic block ko merge karke bina kisi third-party network aur templates ke directly business scalable asset banana hi asli power hai.</p>
+                
+                <div id="content_codes" class="full-content">
+                    <h3>1. Core Ideology: What is Codes aur Khana?</h3>
+                    <p><b>Codes aur Khana</b> koi fake narrative ya fancy software framework nahi hai—it represents the absolute raw ground reality of survival and scaling. Yeh ek straightforward mindset hai jahan hum <b>sustenance (Khana)</b> aur <b>pure digital asset creation (Codes)</b> ko direct connect karte hain. True engine builders complex theoretical hypes par time waste nahi karte; wo seedha core scripts likhte hain jo output deliver karein.</p>
+                    
+                    <h3>2. Why Codes aur Khana in the Reality Side?</h3>
+                    <p>Traditional systems hamesha badi, unverified baatein karte hain par direct execution ko completely ignore karte hain. Hum systems par tabs lagakar unhe ground layout par execute karte hain. True monetization tab khadi hoti hai jab aap core structures likh kar customer interface direct validate karte hain, jisse absolute revenue run hota hai jo tables par direct baseline support lata hai.</p>
+
+                    <div class="money-strategy">
+                        <h4 style="text-transform: uppercase; margin-bottom: 10px; color: var(--accent-green);">📈 HOW IT HELPS EVERYONE GROW IN CODES & BUSINESS:</h4>
+                        <p><b>• Zero Dependency Growth:</b> Pre-made third-party platforms ya complicated frameworks ko blindly use karne ke bajaye clean, raw stack command code logic se systems stand hote hain.</p>
+                        <p><b>• Direct Asset Creation:</b> Jab aap direct operational components code karte hain (jaise direct client web configurations or functional creator networks), aap genuine scalable enterprise models tayyar karte hain jo straight value build karte hain.</p>
+                    </div>
+                </div>
+                <button class="btn-expand" onclick="toggle('content_codes', this)">Read Full Details <span>↓</span></button>
+            </article>
+
+            <article class="post" id="no-money">
+                <span class="post-tag">MONETIZATION / 03 // REAL_ANALYSIS</span>
+                <h2>Why Web Developers & New Founders Don't Make Money</h2>
+                <p class="post-excerpt">Tutorial hell, over-engineering, aur selling skills na seekhna—sabse bade reasons jis wajah se real coding knowledge hone ke baad bhi log zero revenue par atke rehte hain.</p>
+                
+                <div id="content_money" class="full-content">
+                    <h3>1. The Over-Engineering Trap</h3>
+                    <p>New developers aur founders sabse badi galti ye karte hain ki wo product ko market mein launch karne se pehle use bekar ke complex features aur frameworks se load kar dete hain. Unhe lagta hai ki Next.js, Redux, multi-cloud clusters setup karne se revenue aayega. Reality ye hai ki user ko sirf functional clean tools chahiye jo unka kaam aasan karein. Jab tak product build hota hai, founder ka motivation khatam ho jata hai.</p>
+                    
+                    <h3>2. Zero Focus on Distribution & Selling</h3>
+                    <p>Aap duniya ka sabse behtareen system code kar lijiye, par agar aap use sell nahi kar sakte ya un target creators/workers tak nahi pahuncha sakte, toh aapki business valuation zero hai. Developers har roz naye languages seekhne mein time lagate hain, par 1 ghanta bhi direct marketing ya consumer acquisition par focus nahi karte. Business bina user conversion ke survive nahi karta.</p>
+
+                    <div class="ai-strategy">
+                        <h4 style="text-transform: uppercase; margin-bottom: 10px; color: var(--accent-rust);">⚠️ CRITICAL STRATEGY LEAKS:</h4>
+                        <p><b>• Tutorial Hell:</b> Har din naya component tutorial dekhna par real independent functional products launch na karna.</p>
+                        <p><b>• Ignoring Core Monetization:</b> Product mein payment systems ya business baseline strategy pehle din se integrated na rakhna.</p>
+                    </div>
+
+                    <h3>3. Falling For "Hype" Frameworks</h3>
+                    <p>Har dusre din social media par naye tech stacks promote kiye jaate hain. Developers product ka baseline architecture stable karne ke bajaye lagatar codes rewrite karte hain taaki wo 'cool' lag sakein. Asli money drive tab hoti hai jab aap plain logic, solid direct conversions (jaise HamaraMarket configurations), aur client interfaces par straight command bana kar launch karte hain.</p>
+                </div>
+                <button class="btn-expand" onclick="toggle('content_money', this)">Read Full Details <span>↓</span></button>
+            </article>
+
+            <footer id="reality" class="reality-disclaimer">
+                <div class="reality-title">
+                    <div class="status-dot">✓</div>
+                    We Talk Reality and True
+                </div>
+                <p class="reality-text">
+                    We are true and we talk reality, not fake. We share all reality here completely unfiltered. We are built completely different—we stand by actual custom development, heavy logic execution, and raw production numbers.
+                </p>
+                <a href="https://cockroachjantaparty.org" target="_blank" class="party-tag-link">
+                    <div class="party-tag">WE SUPPORT COCKROACH JANATA PARTY ↗</div>
+                </a>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function toggle(id, btn) {
+            const content = document.getElementById(id);
+            const isHidden = content.style.display === "none" || content.style.display === "";
+            
+            if (isHidden) {
+                content.style.display = "block";
+                gsap.from(content, { opacity: 0, y: -5, duration: 0.2 });
+                btn.innerHTML = "Close Content <span>↑</span>";
+                btn.style.background = "var(--text-dark)";
+                btn.style.color = "var(--bg-cream)";
+            } else {
+                content.style.display = "none";
+                btn.innerHTML = "Read Content <span>↓</span>";
+                btn.style.background = "var(--accent-rust)";
+                btn.style.color = "#fff";
+            }
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santanu Konwar | Reality Cluster</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        :root {
+            /* Exact Color Palette From The Image */
+            --bg-cream: #e6dfd3;
+            --card-base: #d2cbb8;
+            --text-dark: #14120e;
+            --accent-rust: #af4419;
+            --accent-green: #114c2b;
+            --border-width: 2px;
+            --shadow-offset: 5px;
+            --shadow-offset-mobile: 4px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg-cream); 
+            color: var(--text-dark); 
+            font-family: 'Space Grotesk', sans-serif; 
+            line-height: 1.5;
+            padding-bottom: 40px;
+            background-image: radial-gradient(var(--text-dark) 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            overflow-x: hidden;
+        }
+
+        /* --- Responsive Neo-Brutalist Sticky Navbar --- */
+        nav {
+            position: sticky; top: 0;
+            background: var(--bg-cream);
+            border-bottom: var(--border-width) solid var(--text-dark);
+            padding: 15px 4%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+        }
+        .logo { 
+            font-weight: 700; font-size: 1rem; letter-spacing: 0.5px;
+            text-transform: uppercase; display: flex; flex-direction: column;
+            line-height: 1.1;
+        }
+        .logo span { font-size: 0.6rem; font-family: 'Fira Code', monospace; font-weight: 400; }
+        
+        .nav-links { display: flex; gap: 20px; font-weight: 500; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); }
+        
+        /* --- Premium Heavy Interactive Top Button --- */
+        .hire-btn {
+            background: var(--text-dark); color: var(--bg-cream);
+            text-decoration: none; padding: 10px 18px; font-weight: 700;
+            text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px;
+            border: var(--border-width) solid var(--text-dark);
+            box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px #000;
+            transition: transform 0.05s ease, box-shadow 0.05s ease;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .hire-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        /* --- Master Layout Grid (PC & Mobile Adaptive) --- */
+        .main-container {
+            max-width: 1100px; margin: 30px auto;
+            display: grid; grid-template-columns: 280px 1fr;
+            gap: 30px; padding: 0 4%;
+        }
+
+        /* --- Sidebar Profile Box --- */
+        .profile-card {
+            background: var(--card-base); 
+            border: var(--border-width) solid var(--text-dark);
+            border-radius: 4px; padding: 25px 20px; text-align: center;
+            position: sticky; top: 100px;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
+        }
+        
+        .pfp {
+            width: 75px; height: 75px; background: var(--text-dark);
+            border-radius: 50%; margin: 0 auto 15px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 700; color: var(--bg-cream);
+            border: var(--border-width) solid var(--text-dark);
+        }
+        
+        .profile-card h2 { font-size: 1.35rem; font-weight: 700; text-transform: uppercase; }
+        .profile-card p { font-size: 0.85rem; margin-top: 10px; font-weight: 500; color: rgba(20,18,14,0.9); }
+
+        .social-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 20px; }
+        .s-link {
+            text-decoration: none; color: var(--text-dark); font-size: 0.75rem; font-weight: 700;
+            padding: 8px; border: var(--border-width) solid var(--text-dark); background: var(--bg-cream);
+            text-transform: uppercase; font-family: 'Fira Code', monospace; letter-spacing: 0.5px;
+            transition: all 0.05s ease;
+        }
+        .s-link:active { 
+            background: var(--text-dark); color: var(--bg-cream);
+        }
+
+        /* --- Core Blog Posts Container --- */
+        .post {
+            background: var(--card-base); 
+            border: var(--border-width) solid var(--text-dark);
+            padding: 30px; margin-bottom: 30px; position: relative;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
+        }
+        
+        .post-tag { 
+            font-family: 'Fira Code', monospace; 
+            font-size: 0.7rem; font-weight: 700; 
+            margin-bottom: 10px; display: inline-block;
+            text-transform: uppercase; color: var(--accent-rust);
+        }
+        
+        .post h2 { font-size: 1.75rem; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; line-height: 1.2; }
+        .post-excerpt { font-size: 1rem; margin-bottom: 18px; font-weight: 500; }
+
+        /* --- Dynamic Collapsible Inside Layout --- */
+        .full-content { display: none; margin-top: 20px; border-top: var(--border-width) solid var(--text-dark); padding-top: 20px; }
+        .full-content p { margin-bottom: 15px; font-size: 0.95rem; color: #1c1a16; }
+        .full-content h3 { margin: 20px 0 10px; font-size: 1.15rem; text-transform: uppercase; color: var(--accent-rust); }
+        
+        .code-snippet {
+            background: var(--bg-cream); border: var(--border-width) solid var(--text-dark);
+            padding: 12px 15px; margin: 15px 0;
+            font-family: 'Fira Code', monospace; color: var(--text-dark); font-size: 0.85rem;
+            font-weight: 600; overflow-x: auto; white-space: nowrap;
+        }
+
+        .money-strategy, .ai-strategy {
+            padding: 15px; margin: 20px 0;
+            border: var(--border-width) solid var(--text-dark); background: var(--bg-cream);
+            box-shadow: 3px 3px 0px var(--text-dark);
+        }
+        .money-strategy { border-left: 8px solid var(--accent-green); }
+        .ai-strategy { border-left: 8px solid var(--accent-rust); }
+        
+        .money-strategy p, .ai-strategy p { font-size: 0.9rem; margin-bottom: 8px; }
+        .money-strategy p:last-child, .ai-strategy p:last-child { margin-bottom: 0; }
+
+        /* --- Universal Expand/Collapse Interactive Buttons --- */
+        .btn-expand {
+            background: var(--accent-rust); color: #fff; 
+            border: var(--border-width) solid var(--text-dark);
+            padding: 10px 20px; font-weight: 700;
+            cursor: pointer; font-size: 0.8rem; font-family: 'Fira Code', monospace;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            box-shadow: 4px 4px 0px var(--text-dark);
+            transition: transform 0.05s ease, box-shadow 0.05s ease;
+            outline: none;
+        }
+        .btn-expand:active { 
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--text-dark);
+        }
+
+        /* --- Bottom Cockroach Footer Support Block --- */
+        .reality-disclaimer {
+            margin-top: 40px;
+            background: var(--card-base);
+            border: var(--border-width) solid var(--text-dark);
+            padding: 25px;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--text-dark);
+            position: relative;
+        }
+        .reality-title {
+            font-size: 1.15rem; font-weight: 700; margin-bottom: 10px;
+            text-transform: uppercase; display: flex; align-items: center; gap: 8px;
+        }
+        .reality-title .status-dot {
+            width: 20px; height: 20px; background: var(--accent-green);
+            border: var(--border-width) solid var(--text-dark); border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 0.65rem;
+        }
+        .reality-text { font-size: 0.9rem; font-weight: 500; color: var(--text-dark); }
+        
+        .party-tag-link {
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .party-tag {
+            background: var(--accent-rust); color: #fff;
+            border: var(--border-width) solid var(--text-dark);
+            padding: 8px 16px; font-weight: 700; text-transform: uppercase;
+            font-family: 'Fira Code', monospace; font-size: 0.75rem;
+            box-shadow: 3px 3px 0px var(--text-dark);
+            transition: transform 0.05s ease, box-shadow 0.05s ease;
+        }
+        .party-tag-link:active .party-tag {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px var(--text-dark);
+        }
+
+        /* ==========================================
+           CRITICAL RESPONSIVE MEDIA QUERIES (PC vs Mobile)
+           ========================================== */
+        @media (min-width: 901px) {
+            nav { padding: 20px 6%; }
+            .logo { font-size: 1.15rem; }
+            .logo span { font-size: 0.65rem; }
+            .hire-btn { padding: 12px 24px; font-size: 0.85rem; box-shadow: var(--shadow-offset) var(--shadow-offset) 0px #000; }
+        }
+
+        @media (max-width: 900px) { 
+            .main-container { 
+                grid-template-columns: 1fr; 
+                margin: 20px auto;
+                gap: 25px;
+            } 
+            .profile-card { 
+                position: relative; top: 0; 
+                box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px var(--text-dark);
+            } 
+            .post {
+                padding: 20px;
+                box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px var(--text-dark);
+            }
+            .post h2 { font-size: 1.4rem; }
+            .post-excerpt { font-size: 0.9rem; }
+            .nav-links { display: none; }
+            
+            .reality-disclaimer {
+                padding: 20px;
+                box-shadow: var(--shadow-offset-mobile) var(--shadow-offset-mobile) 0px var(--text-dark);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            CODES AUR KHANA
+            <span>SANTANU_DEV • EST. 2026</span>
+        </div>
+        <div class="nav-links">
+            <a href="#fail-analysis">Failure Analysis</a>
+            <a href="#codes-khana">Codes aur Khana</a>
+            <a href="#no-money">Founder Truth</a>
+        </div>
+        <a href="mailto:santanukonwar@gmail.com" class="hire-btn">GMAIL ME →</a>
+    </nav>
+
+    <div class="main-container">
+        <aside>
+            <div class="profile-card">
+                <div class="pfp">SK</div>
+                <h2>Santanu Konwar</h2>
+                <p>Founder of HamaraMarket & HyperCreators. Speaking absolute truth, executing custom builds by code logic.</p>
+                
+      <div class="social-grid">
+                    <a href="https://www.linkedin.com/in/codes-aur-khana-a1b3b6407/" class="s-link" target="_blank">LINKEDIN</a>
+                    <a href="https://www.youtube.com/@codenet-n5i" class="s-link" target="_blank">YOUTUBE</a>
+                    <a href="https://twitter.com" class="s-link" target="_blank">TWITTER</a>
+                    <a href="https://www.instagram.com/codes_aur_khana/" class="s-link" target="_blank">INSTAGRAM</a>
+                </div>
+        </aside>
+
+        <main>
+            <article class="post" id="fail-analysis">
+                <span class="post-tag">DOCUMENTATION / 01 // GROUND_REALITY</span>
+                <h2>How India's Average & Business People Fail: The Unfiltered Truth</h2>
+                <p class="post-excerpt">Hype, high interest debts, fake status symbols, aur poor execution strategies kaise modern Indian businesses aur average individual minds ko trap karti hain—read the complete logical breakdown.</p>
+                
+                <div id="content_fail" class="full-content">
+                    <h3>1. The Average Person's Trap: Degree vs Real Skills</h3>
+                    <p>India mein 90% average log isliye fail hote hain kyunki wo traditional institutional systems ke beche huye hype par trust karte hain. Wo lakhon rupaye aisi degrees par kharch kar dete hain jahan outdated theories padhai jaati hain, aur jab tak wo graduate hote hain, market un skills ko zero value deta hai. Wo systems par dependent rehte hain aur jab job nahi milti toh depressed ho jaate hain, jabki real asset-building aur core scaling par koi focus nahi karta.</p>
+                    
+                    <h3>2. The Business Failure Blueprint: Hype Over Cash Flow</h3>
+                    <p>Indian business owner chahe chota ho ya bada, aksar ground execution ko chhodkar external validation ke piche bhagta hai. Logos, heavy office spaces, fancy tools aur high-interest traditional business loans (debt) le kar capital burn kar diya jata hai bina solid customer baseline validation ke. Jab tak real cash flow start hota hai, unki liquidity crash kar jati hai.</p>
+
+                    <div class="ai-strategy">
+                        <h4 style="text-transform: uppercase; margin-bottom: 10px; color: var(--accent-rust);">⚠️ SYSTEM CRITICAL ERROR LOCATIONS:</h4>
+                        <p><b>• Over-leveraging on Debt:</b> Bina proof-of-concept ke bade loops par finance ya leverage uthana aur operations block karna.</p>
+                        <p><b>• Middleman Reliance:</b> Direct builders banne ki jagah distribution aur agency structures ko handle karne ke liye intermediaries par zyada focusรักษา.</p>
+                    </div>
+
+                    <h3>3. The Poor Mindset vs Raw Coding Strategy</h3>
+                    <p>Traditional narrative logo ko 'unemployed' aur 'poor' bol kar isliye convince rakhta hai taaki wo schemes ke dependent bane rahein. Local scale business ya builder jab tak apna customized architecture khud handle nahi karega (bina fixed expensive platforms par depend huye), tab tak scalability zero rahegi. Real growth tab aati hai jab aap fake branding aur templates chhod kar reality zone mein cash flow par command karte hain.</p>
+                </div>
+                <button class="btn-expand" onclick="toggle('content_fail', this)">Read Documentation <span>↓</span></button>
+            </article>
+
+            <article class="post" id="codes-khana">
+                <span class="post-tag">DOCUMENTATION / 02 // REALITY_SIDE</span>
+                <h2>What is Codes aur Khana & Why They Help All Grow</h2>
+                <p class="post-excerpt">Sustenance aur logic block ko merge karke bina kisi third-party network aur templates ke directly business scalable asset banana hi asli power hai.</p>
+                
+                <div id="content_codes" class="full-content">
+                    <h3>1. Core Ideology: What is Codes aur Khana?</h3>
+                    <p><b>Codes aur Khana</b> koi fake narrative ya fancy software framework nahi hai—it represents the absolute raw ground reality of survival and scaling. Yeh ek straightforward mindset hai jahan hum <b>sustenance (Khana)</b> aur <b>pure digital asset creation (Codes)</b> ko direct connect karte hain. True engine builders complex theoretical hypes par time waste nahi karte; wo seedha core scripts likhte hain jo output deliver karein.</p>
+                    
+                    <h3>2. Why Codes aur Khana in the Reality Side?</h3>
+                    <p>Traditional systems hamesha badi, unverified baatein karte hain par direct execution ko completely ignore karte hain. Hum systems par tabs lagakar unhe ground layout par execute karte hain. True monetization tab khadi hoti hai jab aap core structures likh kar customer interface direct validate karte hain, jisse absolute revenue run hota hai jo tables par direct baseline support lata hai.</p>
+
+                    <div class="money-strategy">
+                        <h4 style="text-transform: uppercase; margin-bottom: 10px; color: var(--accent-green);">📈 HOW IT HELPS EVERYONE GROW IN CODES & BUSINESS:</h4>
+                        <p><b>• Zero Dependency Growth:</b> Pre-made third-party platforms ya complicated frameworks ko blindly use karne ke bajaye clean, raw stack command code logic se systems stand hote hain.</p>
+                        <p><b>• Direct Asset Creation:</b> Jab aap direct operational components code karte hain (jaise direct client web configurations or functional creator networks), aap genuine scalable enterprise models tayyar karte hain jo straight value build karte hain.</p>
+                    </div>
+                </div>
+                <button class="btn-expand" onclick="toggle('content_codes', this)">Read Full Details <span>↓</span></button>
+            </article>
+
+            <article class="post" id="no-money">
+                <span class="post-tag">MONETIZATION / 03 // REAL_ANALYSIS</span>
+                <h2>Why Web Developers & New Founders Don't Make Money</h2>
+                <p class="post-excerpt">Tutorial hell, over-engineering, aur selling skills na seekhna—sabse bade reasons jis wajah se real coding knowledge hone ke baad bhi log zero revenue par atke rehte hain.</p>
+                
+                <div id="content_money" class="full-content">
+                    <h3>1. The Over-Engineering Trap</h3>
+                    <p>New developers aur founders sabse badi galti ye karte hain ki wo product ko market mein launch karne se pehle use bekar ke complex features aur frameworks se load kar dete hain. Unhe lagta hai ki Next.js, Redux, multi-cloud clusters setup karne se revenue aayega. Reality ye hai ki user ko sirf functional clean tools chahiye jo unka kaam aasan karein. Jab tak product build hota hai, founder ka motivation khatam ho jata hai.</p>
+                    
+                    <h3>2. Zero Focus on Distribution & Selling</h3>
+                    <p>Aap duniya ka sabse behtareen system code kar lijiye, par agar aap use sell nahi kar sakte ya un target creators/workers tak nahi pahuncha sakte, toh aapki business valuation zero hai. Developers har roz naye languages seekhne mein time lagate hain, par 1 ghanta bhi direct marketing ya consumer acquisition par focus nahi karte. Business bina user conversion ke survive nahi karta.</p>
+
+                    <div class="ai-strategy">
+                        <h4 style="text-transform: uppercase; margin-bottom: 10px; color: var(--accent-rust);">⚠️ CRITICAL STRATEGY LEAKS:</h4>
+                        <p><b>• Tutorial Hell:</b> Har din naya component tutorial dekhna par real independent functional products launch na karna.</p>
+                        <p><b>• Ignoring Core Monetization:</b> Product mein payment systems ya business baseline strategy pehle din se integrated na rakhna.</p>
+                    </div>
+
+                    <h3>3. Falling For "Hype" Frameworks</h3>
+                    <p>Har dusre din social media par naye tech stacks promote kiye jaate hain. Developers product ka baseline architecture stable karne ke bajaye lagatar codes rewrite karte hain taaki wo 'cool' lag sakein. Asli money drive tab hoti hai jab aap plain logic, solid direct conversions (jaise HamaraMarket configurations), aur client interfaces par straight command bana kar launch karte hain.</p>
+                </div>
+                <button class="btn-expand" onclick="toggle('content_money', this)">Read Full Details <span>↓</span></button>
+            </article>
+
+            <footer id="reality" class="reality-disclaimer">
+                <div class="reality-title">
+                    <div class="status-dot">✓</div>
+                    We Talk Reality and True
+                </div>
+                <p class="reality-text">
+                    We are true and we talk reality, not fake. We share all reality here completely unfiltered. We are built completely different—we stand by actual custom development, heavy logic execution, and raw production numbers.
                 </p>
                 <a href="https://cockroachjantaparty.org" target="_blank" class="party-tag-link">
                     <div class="party-tag">WE SUPPORT COCKROACH JANATA PARTY ↗</div>
